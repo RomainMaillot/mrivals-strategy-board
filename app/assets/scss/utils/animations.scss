@@ -1,0 +1,190 @@
+@use "easings" as *;
+
+/*
+	Split Text
+	[v-split-text]
+*/
+:root {
+  --split-type: "chars"; // chars, words, lines
+  --split-distance-from: 105%;
+  --split-delay: 0s;
+  --split-duration: 1s;
+  --split-duration-out: 0.5s;
+  --split-easing: #{$Power3EaseOut};
+  --split-easing-out: #{$Power3EaseIn};
+  --split-stagger-word: 0.1s; // also used for lines
+  --split-stagger-char: 0.015s;
+}
+
+/*
+	Simple hover animation
+*/
+.fade-hover {
+  transition: opacity 0.4s ease;
+
+  .desktop &:hover,
+  .desktop &:focus {
+    opacity: 0.5;
+  }
+}
+
+.anim--split {
+  opacity: 0;
+  user-select: none;
+
+  * {
+    user-select: none;
+  }
+
+  &__line {
+    overflow: hidden;
+  }
+
+  &__word,
+  &__char {
+    transform: translate3d(0, var(--split-distance-from), 0);
+  }
+
+  &--in {
+    opacity: 1;
+
+    .anim--split__word,
+    .anim--split__char {
+      transform: translate3d(0, 0%, 0);
+      transition: transform var(--split-duration) var(--split-easing);
+    }
+    .anim--split__word {
+      transition-delay: calc(
+        var(--split-index) * var(--split-stagger-word) + var(--split-delay)
+      );
+    }
+    .anim--split__char {
+      transition-delay: calc(
+        var(--split-index) * var(--split-stagger-char) + var(--split-delay)
+      );
+    }
+  }
+
+  &--out {
+    .anim--split__word,
+    .anim--split__char {
+      transform: translate3d(0, var(--split-distance-from), 0);
+      transition: transform var(--split-duration-out) var(--split-easing-out);
+    }
+    .anim--split__word {
+      transition-delay: calc(
+        (var(--split-child-total) - var(--split-index)) *
+          var(--split-stagger-word)
+      );
+    }
+    .anim--split__char {
+      transition-delay: calc(
+        (var(--split-child-total) - var(--split-index)) *
+          var(--split-stagger-char)
+      );
+    }
+  }
+}
+
+/*
+	Translate In
+	[v-translate-in]
+*/
+:root {
+  --translate-axis: y;
+  --translate-transform: translate3d(0, var(--translate-distance-from), 0);
+  --translate-distance-from: 30px;
+  --translate-delay: 0s;
+  --translate-duration: 1.4s;
+  --translate-duration-out: 0.5s;
+  --translate-easing: #{$Power3EaseOut};
+  --translate-easing-out: #{$Power3EaseIn};
+  --translate-stagger: 0.1s;
+}
+
+.anim--translate {
+  opacity: 0 !important;
+  transform: var(--translate-transform) !important;
+
+  &.anim--translate--in {
+    opacity: 1 !important;
+    transform: translate3d(0, 0px, 0) !important;
+    transition: opacity var(--translate-duration) var(--translate-easing)
+        var(--translate-delay),
+      transform var(--translate-duration) var(--translate-easing)
+        var(--translate-delay) !important;
+  }
+  &.anim--translate--out {
+    opacity: 0 !important;
+    transform: var(--translate-transform) !important;
+    transition: opacity var(--translate-duration-out)
+        var(--translate-easing-out),
+      transform var(--translate-duration-out) var(--translate-easing-out) !important;
+  }
+
+  // Target: 'childs'
+  &-childs {
+    > * {
+      opacity: 0 !important;
+      transform: var(--translate-transform) !important;
+    }
+
+    &.anim--translate--in > * {
+      opacity: 1 !important;
+      transform: translate3d(0, 0px, 0) !important;
+      transition: opacity var(--translate-duration) var(--translate-easing),
+        transform var(--translate-duration) var(--translate-easing) !important;
+      transition-delay: calc(
+        var(--translate-index) * var(--translate-stagger) +
+          var(--translate-delay)
+      ) !important;
+    }
+    &.anim--translate--out > * {
+      opacity: 0 !important;
+      transform: var(--translate-transform) !important;
+      transition: opacity var(--translate-duration-out)
+          var(--translate-easing-out),
+        transform var(--translate-duration-out) var(--translate-easing-out) !important;
+      transition-delay: calc(
+        (var(--translate-child-total) - var(--translate-index)) *
+          var(--translate-stagger)
+      ) !important;
+    }
+  }
+}
+
+/*
+	Lazyloading
+	.lazyload
+*/
+.lazyload,
+.lazyloading {
+  opacity: 0 !important;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 0.8s;
+}
+
+/*
+	Animation keyframes
+*/
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(15px);
+  }
+  50% {
+    transform: translateX(-15px);
+  }
+  75% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

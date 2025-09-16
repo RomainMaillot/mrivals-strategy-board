@@ -1,0 +1,22 @@
+@use "sass:math";
+
+@function base($base, $value, $unit: "rem") {
+  $baseVal: $base * $value;
+  @return #{math.div($baseVal, 16)}#{$unit};
+}
+
+@function base8($value: 0, $unit: "rem") {
+  @return base(8, $value, $unit);
+}
+
+@function base10($value: 0, $unit: "rem") {
+  @return base(10, $value, $unit);
+}
+
+@function base11($value: 0, $unit: "rem") {
+  @return #{math.div($value, 16)}#{$unit};
+}
+
+@function rem($px) {
+  @return #{math.div($px, 16)}rem;
+}

@@ -1,0 +1,609 @@
+@use "sass:map";
+@use "tools" as *;
+
+/**
+ * Typography
+ */
+
+$signifier: "Signifier";
+$mori: "PP Mori";
+
+@mixin fontSizeResponsive($max, $min, $maxNumber) {
+  font-size: sizeResponsive($max, $min, $maxNumber);
+}
+
+@function sizeResponsive($max, $min, $maxNumber) {
+  @return clamp($min, calc($maxNumber / 1440 * 100vw), calc($max * 1.5));
+}
+
+@mixin letterSpacing($letterSpacing, $baseFontSize) {
+  letter-spacing: calc($baseFontSize / 16 * $letterSpacing / 100 * 1rem);
+}
+
+@mixin uber-style {
+  @include fontSizeResponsive(200px, 60px, 200);
+  @include letterSpacing(-2, 200);
+  line-height: 1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h1-style {
+  @include fontSizeResponsive(140px, 44px, 140);
+  @include letterSpacing(-2, 140);
+  line-height: 1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h2-style {
+  @include fontSizeResponsive(100px, 32px, 100);
+  @include letterSpacing(-1, 100);
+  line-height: 1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h3-style {
+  @include fontSizeResponsive(80px, 32px, 80);
+  @include letterSpacing(-1, 80);
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h4-style {
+  @include fontSizeResponsive(60px, 32px, 60);
+  @include letterSpacing(-1, 60);
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin quote-style {
+  @include fontSizeResponsive(56px, 56px, 56);
+  @include letterSpacing(-1, 56);
+  line-height: 1.1;
+  font-weight: 300;
+  font-family: $signifier;
+}
+
+@mixin body-xxl-style {
+  @include fontSizeResponsive(48px, 32px, 48);
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xl-style {
+  @include fontSizeResponsive(36px, 32px, 36);
+  line-height: 1.2;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-l-style {
+  @include fontSizeResponsive(28px, 28px, 28);
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-m-style {
+  @include fontSizeResponsive(24px, 24px, 24);
+  line-height: 1.3;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-s-style {
+  @include fontSizeResponsive(20px, 13px, 20);
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xs-style {
+  @include fontSizeResponsive(16px, 16px, 16);
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xxs-style {
+  @include fontSizeResponsive(14px, 14px, 14);
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xxxs-style {
+  @include fontSizeResponsive(12px, 12px, 12);
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin uber-style-fluid {
+  font-size: rem(200);
+  letter-spacing: rem(-2);
+  line-height: 1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h1-style-fluid {
+  font-size: rem(140);
+  letter-spacing: rem(-2);
+  line-height: 1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h2-style-fluid {
+  font-size: rem(100);
+  letter-spacing: rem(-1);
+  line-height: 1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h3-style-fluid {
+  font-size: rem(80);
+  letter-spacing: rem(-1);
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin h4-style-fluid {
+  font-size: rem(60);
+  letter-spacing: rem(-1);
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin quote-style-fluid {
+  font-size: rem(56);
+  letter-spacing: rem(-1);
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: $signifier;
+}
+
+@mixin body-xxl-style-fluid {
+  font-size: rem(48);
+  letter-spacing: 0rem;
+  line-height: 1.1;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xl-style-fluid {
+  font-size: rem(36);
+  letter-spacing: 0rem;
+  line-height: 1.2;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-l-style-fluid {
+  font-size: rem(28);
+  letter-spacing: 0rem;
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-m-style-fluid {
+  font-size: rem(24);
+  letter-spacing: 0rem;
+  line-height: 1.3;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-s-style-fluid {
+  font-size: rem(20);
+  letter-spacing: 0rem;
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xs-style-fluid {
+  font-size: rem(16);
+  letter-spacing: 0rem;
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xxs-style-fluid {
+  font-size: rem(14);
+  letter-spacing: 0rem;
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+@mixin body-xxxs-style-fluid {
+  font-size: rem(12);
+  letter-spacing: 0rem;
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: $mori;
+}
+
+$gradients-vars: (
+  "rouge-bourgogne": (
+    var(--rouge),
+    var(--bourgogne),
+  ),
+  "rouge-rose": (
+    var(--rouge),
+    var(--rose),
+  ),
+  "rouge-indigo": (
+    var(--rouge),
+    var(--indigo),
+  ),
+  "rouge-jaune": (
+    var(--rouge),
+    var(--jaune),
+  ),
+  "rouge-gris": (
+    var(--rouge),
+    var(--gris),
+  ),
+  "rouge-menthe": (
+    var(--rouge),
+    var(--menthe),
+  ),
+  "rouge-sarcelle": (
+    var(--rouge),
+    var(--sarcelle),
+  ),
+  "rouge-khaki": (
+    var(--rouge),
+    var(--khaki),
+  ),
+  "rouge-lime": (
+    var(--rouge),
+    var(--lime),
+  ),
+  "bourgogne-rouge": (
+    var(--bourgogne),
+    var(--rouge),
+  ),
+  "bourgogne-rose": (
+    var(--bourgogne),
+    var(--rose),
+  ),
+  "bourgogne-jaune": (
+    var(--bourgogne),
+    var(--jaune),
+  ),
+  "bourgogne-indigo": (
+    var(--bourgogne),
+    var(--indigo),
+  ),
+  "bourgogne-gris": (
+    var(--bourgogne),
+    var(--gris),
+  ),
+  "bourgogne-menthe": (
+    var(--bourgogne),
+    var(--menthe),
+  ),
+  "bourgogne-sarcelle": (
+    var(--bourgogne),
+    var(--sarcelle),
+  ),
+  "bourgogne-khaki": (
+    var(--bourgogne),
+    var(--khaki),
+  ),
+  "bourgogne-lime": (
+    var(--bourgogne),
+    var(--lime),
+  ),
+  "rose-rouge": (
+    var(--rose),
+    var(--rouge),
+  ),
+  "rose-bourgogne": (
+    var(--rose),
+    var(--bourgogne),
+  ),
+  "rose-jaune": (
+    var(--rose),
+    var(--jaune),
+  ),
+  "rose-indigo": (
+    var(--rose),
+    var(--indigo),
+  ),
+  "rose-gris": (
+    var(--rose),
+    var(--gris),
+  ),
+  "rose-menthe": (
+    var(--rose),
+    var(--menthe),
+  ),
+  "rose-sarcelle": (
+    var(--rose),
+    var(--sarcelle),
+  ),
+  "rose-khaki": (
+    var(--rose),
+    var(--khaki),
+  ),
+  "rose-lime": (
+    var(--rose),
+    var(--lime),
+  ),
+  "jaune-rouge": (
+    var(--jaune),
+    var(--rouge),
+  ),
+  "jaune-bourgogne": (
+    var(--jaune),
+    var(--bourgogne),
+  ),
+  "jaune-rose": (
+    var(--jaune),
+    var(--rose),
+  ),
+  "aune-indigo": (
+    var(--jaune),
+    var(--indigo),
+  ),
+  "jaune-gris": (
+    var(--jaune),
+    var(--gris),
+  ),
+  "jaune-menthe": (
+    var(--jaune),
+    var(--menthe),
+  ),
+  "jaune-sarcelle": (
+    var(--jaune),
+    var(--sarcelle),
+  ),
+  "jaune-khaki": (
+    var(--jaune),
+    var(--khaki),
+  ),
+  "jaune-lime": (
+    var(--jaune),
+    var(--lime),
+  ),
+  "indigo-rouge": (
+    var(--indigo),
+    var(--rouge),
+  ),
+  "indigo-bourgogne": (
+    var(--indigo),
+    var(--bourgogne),
+  ),
+  "indigo-rose": (
+    var(--indigo),
+    var(--rose),
+  ),
+  "indigo-jaune": (
+    var(--indigo),
+    var(--jaune),
+  ),
+  "indigo-gris": (
+    var(--indigo),
+    var(--gris),
+  ),
+  "indigo-menthe": (
+    var(--indigo),
+    var(--menthe),
+  ),
+  "indigo-sarcelle": (
+    var(--indigo),
+    var(--sarcelle),
+  ),
+  "indigo-khaki": (
+    var(--indigo),
+    var(--khaki),
+  ),
+  "indigo-lime": (
+    var(--indigo),
+    var(--lime),
+  ),
+  "gris-rouge": (
+    var(--gris),
+    var(--rouge),
+  ),
+  "gris-bourgogne": (
+    var(--gris),
+    var(--bourgogne),
+  ),
+  "gris-rose": (
+    var(--gris),
+    var(--rose),
+  ),
+  "gris-jaune": (
+    var(--gris),
+    var(--jaune),
+  ),
+  "gris-indigo": (
+    var(--gris),
+    var(--indigo),
+  ),
+  "gris-menthe": (
+    var(--gris),
+    var(--menthe),
+  ),
+  "gris-khaki": (
+    var(--gris),
+    var(--khaki),
+  ),
+  "gris-lime": (
+    var(--gris),
+    var(--lime),
+  ),
+  "menthe-rouge": (
+    var(--menthe),
+    var(--rouge),
+  ),
+  "menthe-bourgogne": (
+    var(--menthe),
+    var(--bourgogne),
+  ),
+  "menthe-rose": (
+    var(--menthe),
+    var(--rose),
+  ),
+  "menthe-jaune": (
+    var(--menthe),
+    var(--jaune),
+  ),
+  "menthe-indigo": (
+    var(--menthe),
+    var(--indigo),
+  ),
+  "menthe-gris": (
+    var(--menthe),
+    var(--gris),
+  ),
+  "menthe-sarcelle": (
+    var(--menthe),
+    var(--sarcelle),
+  ),
+  "menthe-khaki": (
+    var(--menthe),
+    var(--khaki),
+  ),
+  "menthe-lime": (
+    var(--menthe),
+    var(--lime),
+  ),
+  "sarcelle-rouge": (
+    var(--sarcelle),
+    var(--rouge),
+  ),
+  "sarcelle-bourgogne": (
+    var(--sarcelle),
+    var(--bourgogne),
+  ),
+  "sarcelle-rose": (
+    var(--sarcelle),
+    var(--rose),
+  ),
+  "sarcelle-jaune": (
+    var(--sarcelle),
+    var(--jaune),
+  ),
+  "sarcelle-indigo": (
+    var(--sarcelle),
+    var(--indigo),
+  ),
+  "sarcelle-gris": (
+    var(--sarcelle),
+    var(--gris),
+  ),
+  "sarcelle-menthe": (
+    var(--sarcelle),
+    var(--menthe),
+  ),
+  "sarcelle-khaki": (
+    var(--sarcelle),
+    var(--khaki),
+  ),
+  "sarcelle-lime": (
+    var(--sarcelle),
+    var(--lime),
+  ),
+  "khaki-rouge": (
+    var(--khaki),
+    var(--rouge),
+  ),
+  "khaki-bourgogne": (
+    var(--khaki),
+    var(--bourgogne),
+  ),
+  "khaki-rose": (
+    var(--khaki),
+    var(--rose),
+  ),
+  "khaki-jaune": (
+    var(--khaki),
+    var(--jaune),
+  ),
+  "khaki-indigo": (
+    var(--khaki),
+    var(--indigo),
+  ),
+  "khaki-gris": (
+    var(--khaki),
+    var(--gris),
+  ),
+  "khaki-menthe": (
+    var(--khaki),
+    var(--menthe),
+  ),
+  "khaki-sarcelle": (
+    var(--khaki),
+    var(--sarcelle),
+  ),
+  "khaki-lime": (
+    var(--khaki),
+    var(--lime),
+  ),
+  "lime-rouge": (
+    var(--lime),
+    var(--rouge),
+  ),
+  "lime-bourgogne": (
+    var(--lime),
+    var(--bourgogne),
+  ),
+  "lime-rose": (
+    var(--lime),
+    var(--rose),
+  ),
+  "lime-jaune": (
+    var(--lime),
+    var(--jaune),
+  ),
+  "lime-indigo": (
+    var(--lime),
+    var(--indigo),
+  ),
+  "lime-gris": (
+    var(--lime),
+    var(--gris),
+  ),
+  "lime-menthe": (
+    var(--lime),
+    var(--menthe),
+  ),
+  "lime-sarcelle": (
+    var(--lime),
+    var(--sarcelle),
+  ),
+  "lime-khaki": (
+    var(--lime),
+    var(--khaki),
+  ),
+);
+
+@function gradient($name, $angle) {
+  @return linear-gradient($angle, map.get($gradients-vars, $name));
+}
+
+@each $name, $vars in $gradients-vars {
+  .style-gradient-#{$name} {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background: gradient($name, 0deg);
+  }
+}

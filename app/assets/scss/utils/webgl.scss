@@ -1,0 +1,19 @@
+.front__canvas,
+.back__canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+
+	&.shake {
+		animation: horizontal-shaking 0.25s;
+	}
+}
+
+.front__canvas {
+	z-index: var(--z-canvas-front);
+}
+
+.back__canvas {
+	z-index: var(--z-canvas-back);
+}

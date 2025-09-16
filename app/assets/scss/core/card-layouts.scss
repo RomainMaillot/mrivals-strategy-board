@@ -1,0 +1,27 @@
+@use "../utils/tools" as tools;
+
+.CardLayoutText {
+  background: var(--card-color, var(--blanc));
+  width: 100%;
+  height: 100%;
+  padding: tools.rem(20);
+  border-radius: tools.rem(20);
+  color: var(--noir);
+
+  &__inner {
+    border: tools.rem(1) solid var(--noir);
+    border-radius: tools.rem(20);
+    height: 100%;
+    position: relative;
+  }
+
+  &__number {
+    position: absolute;
+    top: tools.rem(20);
+    left: tools.rem(20);
+  }
+
+  &__text {
+    margin-top: tools.base8(2);
+  }
+}

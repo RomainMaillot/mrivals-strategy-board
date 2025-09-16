@@ -1,0 +1,12 @@
+.dragging {
+	.app {
+		pointer-events: none;
+	}
+}
+
+// default canvas dimensions values
+// should be overriden in place where canvas is used
+.canvas {
+	width: 450px;
+	height: 300px;
+}

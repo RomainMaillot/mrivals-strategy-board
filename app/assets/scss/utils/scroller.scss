@@ -1,0 +1,42 @@
+body {
+	width: 100%;
+	overflow: hidden;
+	overflow-y: initial;
+}
+html.lenis {
+	height: auto;
+	width: 100%;
+}
+
+/**
+ * Lenis setup
+ */
+.lenis.lenis-smooth {
+	scroll-behavior: auto;
+	[data-lenis-prevent] {
+		overscroll-behavior: contain;
+	}
+}
+.lenis.lenis-stopped {
+	.page {
+		touch-action: none;
+		pointer-events: none;
+	}
+}
+
+.no-scroll {
+	overflow: hidden;
+	overscroll-behavior: none;
+}
+// prevent adress bar
+// html {
+// 	overflow: hidden;
+// 	width: 100%;
+// }
+
+// body {
+// 	height: 100%;
+// 	position: fixed;
+// 	overflow-y: scroll;
+// 	-webkit-overflow-scrolling: touch;
+// }

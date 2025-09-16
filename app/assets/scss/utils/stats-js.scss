@@ -1,0 +1,7 @@
+.stats-js {
+	display: none;
+
+	.debug & {
+		display: block !important;
+	}
+}
