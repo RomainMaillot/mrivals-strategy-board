@@ -13,7 +13,7 @@
  */
 const icons = new Map();
 
-// resolve icons
+// resolve icons
 icons.set("fire", resolveComponent("IconFlame"));
 icons.set("close", resolveComponent("Close"));
 icons.set("lightning", resolveComponent("IconFlash"));
@@ -21,6 +21,14 @@ icons.set("downArrow", resolveComponent("IconDownArrow"));
 icons.set("cross", resolveComponent("IconCross"));
 icons.set("rightArrow", resolveComponent("IconRightArrow"));
 icons.set("sound", resolveComponent("Sound"));
+
+// Strategy Board icons
+icons.set("cursor", resolveComponent("IconCursor"));
+icons.set("pencil", resolveComponent("IconPencil"));
+icons.set("eraser", resolveComponent("IconEraser"));
+icons.set("trash", resolveComponent("IconTrash"));
+icons.set("save", resolveComponent("IconSave"));
+icons.set("download", resolveComponent("IconDownload"));
 
 /**
  * Props
@@ -44,8 +52,6 @@ const component = computed(() => {
 </script>
 
 <style lang="scss">
-@use "~/assets/scss/utils/tools" as *;
-
 .Icon {
   pointer-events: none;
 

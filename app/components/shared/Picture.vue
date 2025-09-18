@@ -145,9 +145,6 @@ const onError = (_e) => {
 </script>
 
 <style lang="scss">
-@use "~/assets/scss/utils/tools" as *;
-@use "~/assets/scss/utils/style-guide-mixins" as *;
-
 .Picture {
   display: block;
   height: auto;

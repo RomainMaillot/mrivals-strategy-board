@@ -13,8 +13,6 @@
   </svg>
 </template>
 <style lang="scss" scoped>
-@use "~/assets/scss/utils/tools" as *;
-
 svg {
   width: rem(34);
   height: rem(34);

@@ -1,7 +1,7 @@
 <template>
   <GeneralLink
     v-if="url || title || icon"
-    @click.native="emit('click', $event)"
+    @click="emit('click', $event)"
     :class="classes"
     :disable="disable"
     v-bind="props"
@@ -73,7 +73,7 @@ const classes = computed(() => {
 </script>
 
 <style lang="scss">
-@use "~/assets/scss/utils/tools" as *;
+@use "~/assets/scss/utils/media-queries" as *;
 
 .Button {
   display: inline-flex;
@@ -93,7 +93,7 @@ const classes = computed(() => {
   }
 
   &--small {
-    padding: rem(20) rem(20) rem(18) rem(20);
+    padding: rem(8) rem(16) rem(8) rem(16);
     .Button__inner {
       @include body-xs-style;
     }

@@ -53,7 +53,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData:
-            '@use "sass:math"; @use "@/assets/scss/utils/easings.scss" as easings; @use "@/assets/scss/utils/style-guide-mixins.scss" as mixins; @use "@/assets/scss/utils/tools.scss" as tools; @use "@/assets/scss/utils/media-queries.scss" as mq;',
+            '@use "sass:math"; @use "@/assets/scss/utils/easings.scss" as easings; @use "@/assets/scss/utils/style-guide-mixins.scss" as *; @use "@/assets/scss/utils/tools.scss" as *; @use "@/assets/scss/utils/media-queries.scss" as *;',
         },
       },
     },
