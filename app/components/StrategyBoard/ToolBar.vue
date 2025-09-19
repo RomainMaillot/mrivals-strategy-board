@@ -92,6 +92,15 @@
         <Button
           type="tertiary"
           size="small"
+          @click="loadStrategy"
+          title="Load Strategy"
+        >
+          <Icon name="download" size="small" />
+        </Button>
+
+        <Button
+          type="tertiary"
+          size="small"
           @click="exportImage"
           title="Export as Image"
         >
@@ -164,6 +173,10 @@ const clearCanvas = () => {
 
 const saveStrategy = () => {
   emit("save-strategy");
+};
+
+const loadStrategy = () => {
+  emit("load-strategy");
 };
 
 const exportImage = () => {

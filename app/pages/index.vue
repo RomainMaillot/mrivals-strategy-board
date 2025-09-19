@@ -10,9 +10,9 @@
         <NuxtLink to="/strategy" class="nav-link nav-link--primary">
           Launch Strategy Board
         </NuxtLink>
-        <NuxtLink to="/styleguide" class="nav-link nav-link--secondary">
+        <!-- <NuxtLink to="/styleguide" class="nav-link nav-link--secondary">
           View Styleguide
-        </NuxtLink>
+        </NuxtLink> -->
       </nav>
     </div>
 

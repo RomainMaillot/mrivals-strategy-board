@@ -22,6 +22,7 @@
           @tool-changed="onToolChanged"
           @clear-canvas="clearCanvas"
           @save-strategy="saveStrategy"
+          @load-strategy="loadStrategy"
           @export-image="exportImage"
         />
       </div>
@@ -237,6 +238,61 @@ const saveStrategy = () => {
   hasUnsavedChanges.value = false;
 
   alert(`Strategy "${strategyName}" saved successfully!`);
+};
+
+const loadStrategy = () => {
+  if (!canvasRef.value) return;
+
+  // Get saved strategies from localStorage
+  const savedStrategies = JSON.parse(
+    localStorage.getItem("marvelRivalsStrategies") || "[]"
+  );
+
+  if (savedStrategies.length === 0) {
+    alert("No saved strategies found!");
+    return;
+  }
+
+  // Create a simple strategy selection dialog
+  const strategyNames = savedStrategies
+    .map(
+      (strategy, index) =>
+        `${index + 1}. ${strategy.name} (${new Date(
+          strategy.createdAt
+        ).toLocaleDateString()})`
+    )
+    .join("\n");
+
+  const selection = prompt(
+    `Select a strategy to load:\n\n${strategyNames}\n\nEnter the number (1-${savedStrategies.length}):`
+  );
+
+  if (!selection) return;
+
+  const selectedIndex = parseInt(selection) - 1;
+  if (
+    isNaN(selectedIndex) ||
+    selectedIndex < 0 ||
+    selectedIndex >= savedStrategies.length
+  ) {
+    alert("Invalid selection!");
+    return;
+  }
+
+  const selectedStrategy = savedStrategies[selectedIndex];
+
+  // Clear current canvas
+  clearCanvas();
+
+  // Load the strategy data
+  try {
+    canvasRef.value.importCanvas(selectedStrategy.data);
+    hasUnsavedChanges.value = false;
+    alert(`Strategy "${selectedStrategy.name}" loaded successfully!`);
+  } catch (error) {
+    console.error("Error loading strategy:", error);
+    alert("Error loading strategy. Please try again.");
+  }
 };
 
 const exportImage = () => {
