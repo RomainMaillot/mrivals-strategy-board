@@ -37,11 +37,18 @@
         </p>
       </div>
     </div>
+
+    <!-- Version Display -->
+    <div class="version">
+      <span class="version__text">v{{ version }}</span>
+    </div>
   </div>
 </template>
 
 <script setup>
-// You can add any page-specific logic here
+// Get version from package.json
+const packageJson = await import("../../package.json");
+const version = packageJson.version;
 </script>
 
 <style lang="scss" scoped>
@@ -54,6 +61,7 @@
     var(--blanc, #f8fafc) 0%,
     var(--gris, #e2e8f0) 100%
   );
+  position: relative;
 }
 
 .hero {
@@ -152,6 +160,24 @@
     font-size: rem(16);
     color: var(--gris, #6b7280);
     line-height: 1.6;
+  }
+}
+
+.version {
+  position: fixed;
+  bottom: rem(20);
+  left: rem(20);
+  z-index: 10;
+
+  &__text {
+    font-size: rem(12);
+    color: var(--gris, #9ca3af);
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.8);
+    padding: rem(4) rem(8);
+    border-radius: rem(4);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 </style>
