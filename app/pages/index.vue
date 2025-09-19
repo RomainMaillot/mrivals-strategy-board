@@ -3,8 +3,7 @@
     <div class="hero">
       <h1 class="hero__title">Marvel Rivals Strategy Board</h1>
       <p class="hero__description">
-        Create, share, and analyze strategies for Marvel Rivals with our
-        interactive strategy board.
+        Create, share, and analyze strategies for Marvel Rivals.
       </p>
 
       <nav class="navigation">
@@ -21,17 +20,13 @@
       <div class="feature">
         <h3 class="feature__title">Interactive Canvas</h3>
         <p class="feature__description">
-          Draw strategies, add character positions, and create tactical plans
-          with our Fabric.js-powered canvas.
+          Draw strategies, add character positions, and create tactical plans.
         </p>
       </div>
 
       <div class="feature">
         <h3 class="feature__title">All Marvel Rivals Heroes</h3>
-        <p class="feature__description">
-          Complete roster of DPS, Tank, and Support heroes with drag-and-drop
-          functionality.
-        </p>
+        <p class="feature__description">Complete your roster.</p>
       </div>
 
       <div class="feature">

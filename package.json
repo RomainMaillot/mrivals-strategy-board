@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@erase2d/fabric": "^1.1.8",
     "@nuxt/devtools": "^2.6.3",
     "@nuxtjs/device": "^3.2.4",
     "fabric": "^6.7.1",

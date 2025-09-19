@@ -10,94 +10,11 @@
 </template>
 
 <script setup>
-import {
-  Canvas,
-  Circle,
-  FabricText,
-  Group,
-  FabricImage,
-  PencilBrush,
-  BaseBrush,
-} from "fabric";
+import { Canvas, Circle, FabricText, Group, FabricImage } from "fabric";
 
-/**
- * Custom Eraser Brush that removes objects instead of drawing
- */
-class EraserBrush extends BaseBrush {
-  constructor(canvas) {
-    super(canvas);
-    this.width = 10;
-    this.color = "rgba(255,255,255,0)"; // Transparent
-    this.inverted = false;
-    this.compositeOperation = "destination-out";
-  }
-
-  onMouseDown(pointer, options) {
-    this.canvas.isDrawingMode = false;
-    this._isErasing = true;
-    this._startErasing(pointer);
-  }
-
-  onMouseMove(pointer, options) {
-    if (this._isErasing) {
-      this._continueErasing(pointer);
-    }
-  }
-
-  onMouseUp(options) {
-    this._isErasing = false;
-    this.canvas.isDrawingMode = true;
-  }
-
-  _startErasing(pointer) {
-    const objects = this.canvas.getObjects();
-    this._removeObjectsAtPoint(pointer, objects);
-  }
-
-  _continueErasing(pointer) {
-    const objects = this.canvas.getObjects();
-    this._removeObjectsAtPoint(pointer, objects);
-  }
-
-  _removeObjectsAtPoint(pointer, objects) {
-    const eraserRadius = this.width / 2;
-
-    // Create a copy of objects array to avoid mutation issues
-    const objectsToCheck = [...objects];
-
-    objectsToCheck.forEach((obj) => {
-      // Don't erase background images or non-selectable objects
-      if (obj.selectable === false || obj.evented === false) return;
-
-      // Check if the eraser point intersects with the object
-      if (obj.containsPoint) {
-        // Use Fabric's built-in point containment check
-        if (obj.containsPoint(pointer)) {
-          this.canvas.remove(obj);
-          return;
-        }
-      }
-
-      // Fallback to bounding box check for objects without containsPoint
-      const objBounds = obj.getBoundingRect();
-      const objCenterX = objBounds.left + objBounds.width / 2;
-      const objCenterY = objBounds.top + objBounds.height / 2;
-
-      const distance = Math.sqrt(
-        Math.pow(pointer.x - objCenterX, 2) +
-          Math.pow(pointer.y - objCenterY, 2)
-      );
-
-      // More precise collision detection
-      const objRadius = Math.min(objBounds.width, objBounds.height) / 2;
-      if (distance < eraserRadius + objRadius) {
-        this.canvas.remove(obj);
-      }
-    });
-
-    this.canvas.renderAll();
-  }
-}
+// Import custom brushes and extensions
+import { createBrush } from "~/utils/brushes";
+import { extendFabricObjects } from "~/utils/brushes/fabricExtensions";
 
 /**
  * Props
@@ -144,11 +61,20 @@ const isReady = ref(false);
 const initCanvas = async () => {
   if (!canvasRef.value) return;
 
+  // Initialize Fabric.js extensions for eraser support (only in browser)
+  if (typeof window !== "undefined") {
+    try {
+      extendFabricObjects();
+    } catch (error) {
+      console.warn("Failed to extend Fabric.js objects:", error);
+    }
+  }
+
   // Create Fabric.js canvas
   fabricCanvas.value = new Canvas(canvasRef.value, {
     width: props.width,
     height: props.height,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#ffffff",
     selection: true,
     preserveObjectStacking: true,
     // Improve rendering quality
@@ -165,6 +91,49 @@ const initCanvas = async () => {
     skipTargetFind: false,
     // Improve control interaction
     targetFindTolerance: 5,
+  });
+
+  // Debug canvas dimensions and scaling
+  console.log("=== CANVAS DIMENSIONS DEBUG ===");
+  console.log("Props dimensions:", {
+    width: props.width,
+    height: props.height,
+  });
+  console.log("Canvas element dimensions:", {
+    width: canvasRef.value.width,
+    height: canvasRef.value.height,
+    clientWidth: canvasRef.value.clientWidth,
+    clientHeight: canvasRef.value.clientHeight,
+    offsetWidth: canvasRef.value.offsetWidth,
+    offsetHeight: canvasRef.value.offsetHeight,
+  });
+  console.log("Fabric canvas dimensions:", {
+    width: fabricCanvas.value.width,
+    height: fabricCanvas.value.height,
+    getWidth: fabricCanvas.value.getWidth(),
+    getHeight: fabricCanvas.value.getHeight(),
+  });
+  console.log("Canvas scaling:", {
+    retinaScaling: fabricCanvas.value.enableRetinaScaling,
+    devicePixelRatio: window.devicePixelRatio || 1,
+  });
+
+  // Check if there are multiple canvas elements
+  const upperCanvas = fabricCanvas.value.upperCanvasEl;
+  const lowerCanvas = fabricCanvas.value.lowerCanvasEl;
+  console.log("Upper canvas (drawing layer):", {
+    width: upperCanvas?.width,
+    height: upperCanvas?.height,
+    clientWidth: upperCanvas?.clientWidth,
+    clientHeight: upperCanvas?.clientHeight,
+    style: upperCanvas?.style.cssText,
+  });
+  console.log("Lower canvas (static layer):", {
+    width: lowerCanvas?.width,
+    height: lowerCanvas?.height,
+    clientWidth: lowerCanvas?.clientWidth,
+    clientHeight: lowerCanvas?.clientHeight,
+    style: lowerCanvas?.style.cssText,
   });
 
   // Set up event listeners
@@ -215,6 +184,30 @@ const setupCanvasEvents = () => {
     console.log("Selection cleared");
     // Remove keyboard controls when nothing is selected
     removeKeyboardControls();
+  });
+
+  // Debug mouse events to check coordinate accuracy for drawing offset issues
+  fabricCanvas.value.on("mouse:down", (e) => {
+    if (fabricCanvas.value.isDrawingMode) {
+      const pointer = fabricCanvas.value.getPointer(e.e);
+      console.log("=== MOUSE DOWN DEBUG ===");
+      console.log("Canvas pointer:", pointer);
+      console.log("Raw mouse event:", {
+        clientX: e.e.clientX,
+        clientY: e.e.clientY,
+        offsetX: e.e.offsetX,
+        offsetY: e.e.offsetY,
+      });
+      console.log(
+        "Canvas bounds:",
+        fabricCanvas.value.upperCanvasEl.getBoundingClientRect()
+      );
+      console.log("Drawing mode:", fabricCanvas.value.isDrawingMode);
+      console.log(
+        "Brush type:",
+        fabricCanvas.value.freeDrawingBrush?.constructor?.name
+      );
+    }
   });
 
   // Object scaling and rotation events
@@ -469,6 +462,7 @@ const loadMapBackground = async (imageUrl) => {
       evented: false,
       moveCursor: "default",
       hoverCursor: "default",
+      erasable: false, // Protect background from eraser
     });
 
     console.log("Setting background image on canvas");
@@ -518,6 +512,7 @@ const loadMapBackground = async (imageUrl) => {
           evented: false,
           moveCursor: "default",
           hoverCursor: "default",
+          erasable: false, // Protect background from eraser
         });
 
         // Try different background setting methods
@@ -551,6 +546,7 @@ const addCharacter = (characterData, position) => {
     strokeWidth: 3,
     originX: "center",
     originY: "center",
+    erasable: true, // Allow eraser to affect character icons
     // Custom properties
     characterId: characterData.id,
     characterName: characterData.name,
@@ -564,6 +560,7 @@ const addCharacter = (characterData, position) => {
     fontSize: 12,
     fontFamily: "Arial",
     textAlign: "center",
+    erasable: true, // Allow eraser to affect character names
     originX: "center",
     originY: "center",
     fill: "#EBEBEB",
@@ -594,23 +591,32 @@ const addCharacter = (characterData, position) => {
   fabricCanvas.value.renderAll();
 };
 
-const enableDrawingMode = (brush = "PencilBrush", options = {}) => {
+const enableDrawingMode = async (brushType = "pencil", options = {}) => {
   if (!fabricCanvas.value) return;
 
   fabricCanvas.value.isDrawingMode = true;
 
-  if (brush === "PencilBrush") {
-    fabricCanvas.value.freeDrawingBrush = new PencilBrush(fabricCanvas.value);
-    fabricCanvas.value.freeDrawingBrush.color = options.color || "#ef4444";
-    fabricCanvas.value.freeDrawingBrush.width = options.width || 3;
-    // Make drawing crisper and smoother
-    fabricCanvas.value.freeDrawingBrush.shadow = null;
-    fabricCanvas.value.freeDrawingBrush.strokeLineCap = "round";
-    fabricCanvas.value.freeDrawingBrush.strokeLineJoin = "round";
-  } else if (brush === "EraserBrush") {
-    // Use custom eraser brush that removes objects
-    fabricCanvas.value.freeDrawingBrush = new EraserBrush(fabricCanvas.value);
-    fabricCanvas.value.freeDrawingBrush.width = options.width || 10;
+  try {
+    // Use the brush factory to create the appropriate brush
+    const brush = await createBrush(brushType, fabricCanvas.value, options);
+    fabricCanvas.value.freeDrawingBrush = brush;
+
+    console.log(`Enabled ${brushType} brush with options:`, options);
+  } catch (error) {
+    console.error("Error creating brush:", error);
+
+    // Fallback to pencil brush
+    try {
+      const fallbackBrush = await createBrush(
+        "pencil",
+        fabricCanvas.value,
+        options
+      );
+      fabricCanvas.value.freeDrawingBrush = fallbackBrush;
+    } catch (fallbackError) {
+      console.error("Failed to create fallback brush:", fallbackError);
+      fabricCanvas.value.isDrawingMode = false;
+    }
   }
 };
 

@@ -141,7 +141,7 @@ const updateObjectCount = () => {
   }
 };
 
-const onToolChanged = (toolData) => {
+const onToolChanged = async (toolData) => {
   currentTool.value = toolData.tool;
 
   if (!canvasRef.value) return;
@@ -151,13 +151,13 @@ const onToolChanged = (toolData) => {
       canvasRef.value.disableDrawingMode();
       break;
     case "draw":
-      canvasRef.value.enableDrawingMode("PencilBrush", {
+      await canvasRef.value.enableDrawingMode("pencil", {
         width: toolData.brushSize,
         color: toolData.brushColor,
       });
       break;
     case "erase":
-      canvasRef.value.enableDrawingMode("EraserBrush", {
+      await canvasRef.value.enableDrawingMode("eraser", {
         width: toolData.brushSize,
       });
       break;
