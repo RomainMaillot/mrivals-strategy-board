@@ -71,27 +71,29 @@ const initCanvas = async () => {
   }
 
   // Create Fabric.js canvas
-  fabricCanvas.value = new Canvas(canvasRef.value, {
-    width: props.width,
-    height: props.height,
-    backgroundColor: "#ffffff",
-    selection: true,
-    preserveObjectStacking: true,
-    // Improve rendering quality
-    imageSmoothingEnabled: false,
-    enableRetinaScaling: true,
-    // Enable object controls
-    centeredScaling: true,
-    centeredRotation: true,
-    // Improve interaction
-    selectionBorderColor: "#3b82f6",
-    selectionLineWidth: 2,
-    selectionDashArray: [5, 5],
-    // Prevent deselection on empty area click when in select mode
-    skipTargetFind: false,
-    // Improve control interaction
-    targetFindTolerance: 5,
-  });
+  fabricCanvas.value = markRaw(
+    new Canvas(canvasRef.value, {
+      width: props.width,
+      height: props.height,
+      backgroundColor: "#ffffff",
+      selection: true,
+      preserveObjectStacking: true,
+      // Improve rendering quality
+      imageSmoothingEnabled: false,
+      enableRetinaScaling: true,
+      // Enable object controls
+      centeredScaling: true,
+      centeredRotation: true,
+      // Improve interaction
+      selectionBorderColor: "#3b82f6",
+      selectionLineWidth: 2,
+      selectionDashArray: [5, 5],
+      // Prevent deselection on empty area click when in select mode
+      skipTargetFind: false,
+      // Improve control interaction
+      targetFindTolerance: 5,
+    })
+  );
 
   // Debug canvas dimensions and scaling
   console.log("=== CANVAS DIMENSIONS DEBUG ===");
