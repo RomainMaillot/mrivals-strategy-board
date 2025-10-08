@@ -1,19 +1,5 @@
 <template>
   <div class="strategy-board">
-    <div class="strategy-board__header">
-      <CText type="h1" class="strategy-board__title"
-        >Marvel Rivals Strategy Board</CText
-      >
-      <div class="strategy-board__actions">
-        <Button @click="newStrategy" type="tertiary" size="small">
-          New Strategy
-        </Button>
-        <Button @click="saveStrategy" type="primary" size="small">
-          Save Strategy
-        </Button>
-      </div>
-    </div>
-
     <div class="strategy-board__content">
       <!-- Left Panel: Tools -->
       <div class="strategy-board__sidebar strategy-board__sidebar--left">
@@ -32,8 +18,8 @@
         <div class="canvas-container" @drop="onDrop" @dragover.prevent>
           <StrategyCanvas
             ref="canvasRef"
-            :width="1200"
-            :height="800"
+            :width="currentWidth"
+            :height="currentHeight"
             :map-background="selectedMap"
             @canvas-ready="onCanvasReady"
             @canvas-changed="onCanvasChanged"
@@ -122,6 +108,8 @@ const objectCount = ref(0);
 const isDragOver = ref(false);
 const hasUnsavedChanges = ref(false);
 const activeTab = ref("characters");
+const currentWidth = ref(window.innerWidth);
+const currentHeight = ref(window.innerHeight);
 
 /**
  * Methods
@@ -324,11 +312,19 @@ onMounted(() => {
   // Add global drag and drop listeners
   document.addEventListener("dragover", onDragOver);
   document.addEventListener("dragleave", onDragLeave);
+  window.addEventListener("resize", () => {
+    currentWidth.value = window.innerWidth;
+    currentHeight.value = window.innerHeight;
+  });
 });
 
 onBeforeUnmount(() => {
   document.removeEventListener("dragover", onDragOver);
   document.removeEventListener("dragleave", onDragLeave);
+  window.removeEventListener("resize", () => {
+    currentWidth.value = window.innerWidth;
+    currentHeight.value = window.innerHeight;
+  });
 });
 </script>
 
@@ -364,7 +360,6 @@ onBeforeUnmount(() => {
     display: flex;
     flex: 1;
     gap: rem(16);
-    padding: rem(16);
     overflow: hidden;
   }
 
@@ -375,7 +370,7 @@ onBeforeUnmount(() => {
       order: 1;
       position: fixed;
       left: rem(24);
-      top: rem(70);
+      top: rem(10);
       bottom: 0;
       z-index: 1;
       height: fit-content;
@@ -385,7 +380,7 @@ onBeforeUnmount(() => {
       order: 3;
       position: fixed;
       right: rem(24);
-      top: rem(70);
+      top: rem(10);
       bottom: 0;
       z-index: 1;
       display: flex;
@@ -420,8 +415,6 @@ onBeforeUnmount(() => {
   justify-content: center;
   align-items: center;
   background: var(--blanc, #fff);
-  border-radius: rem(12);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 

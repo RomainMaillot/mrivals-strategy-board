@@ -4,7 +4,7 @@
       <StrategyBoard />
       <template #fallback>
         <div class="loading-container">
-          <h1>Loading Marvel Rivals Strategy Board...</h1>
+          <h1>Loading...</h1>
           <p>Please wait while we initialize the canvas.</p>
         </div>
       </template>

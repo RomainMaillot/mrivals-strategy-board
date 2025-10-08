@@ -224,9 +224,18 @@ const setupCanvasEvents = () => {
   fabricCanvas.value.on("mouse:down", (e) => {
     const activeObject = fabricCanvas.value.getActiveObject();
 
-    // If we have an active object and we're clicking on it or its controls, don't deselect
-    if (activeObject && e.target === activeObject) {
+    // If we’re clicking on a control or on the same active object, keep selection
+    if (activeObject && (e.target === activeObject || e.target?.__corner)) {
+      // stop Fabric from resetting the selection
       e.e.preventDefault?.();
+      e.e.stopPropagation?.();
+      return;
+    }
+
+    // Otherwise, clear selection only when clicking empty space
+    if (!e.target && !fabricCanvas.value.isDrawingMode) {
+      fabricCanvas.value.discardActiveObject();
+      fabricCanvas.value.requestRenderAll();
     }
   });
 
@@ -546,7 +555,7 @@ const addCharacter = (characterData, position) => {
     strokeWidth: 3,
     originX: "center",
     originY: "center",
-    erasable: true, // Allow eraser to affect character icons
+    erasable: false, // Allow eraser to affect character icons
     // Custom properties
     characterId: characterData.id,
     characterName: characterData.name,
@@ -560,7 +569,7 @@ const addCharacter = (characterData, position) => {
     fontSize: 12,
     fontFamily: "Arial",
     textAlign: "center",
-    erasable: true, // Allow eraser to affect character names
+    erasable: false, // Allow eraser to affect character names
     originX: "center",
     originY: "center",
     fill: "#EBEBEB",
@@ -763,8 +772,6 @@ defineExpose({
 <style lang="scss" scoped>
 .strategy-canvas {
   position: relative;
-  border: 2px solid var(--gris, #e5e7eb);
-  border-radius: 8px;
   overflow: hidden;
   background: #f8f9fa;
 
