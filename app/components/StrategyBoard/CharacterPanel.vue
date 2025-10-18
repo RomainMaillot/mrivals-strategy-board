@@ -1,7 +1,7 @@
 <template>
   <div class="character-panel">
     <div class="character-panel__header">
-      <h3 class="character-panel__title">Marvel Rivals Characters</h3>
+      <!-- <h3 class="character-panel__title">Marvel Rivals Characters</h3> -->
 
       <div class="role-filter">
         <Button
@@ -9,10 +9,9 @@
           :key="role"
           :type="selectedRole === role ? 'secondary' : 'tertiary'"
           size="small"
+          :title="role"
           @click="filterByRole(role)"
-        >
-          {{ role }}
-        </Button>
+        />
       </div>
     </div>
 
@@ -71,143 +70,311 @@ const emit = defineEmits(["character-selected", "character-dropped"]);
  * Marvel Rivals Characters Data
  */
 const marvelRivalsCharacters = [
-  // DPS Characters
+  // Duelists Characters (alphabetically sorted)
   {
-    id: "spider-man",
-    name: "Spider-Man",
-    role: "DPS",
+    id: "black-panther",
+    name: "Black Panther",
+    role: "Duelist",
     color: "#dc2626",
-    avatar: null,
-  },
-  {
-    id: "iron-man",
-    name: "Iron Man",
-    role: "DPS",
-    color: "#dc2626",
-    avatar: null,
-  },
-  { id: "storm", name: "Storm", role: "DPS", color: "#dc2626", avatar: null },
-  {
-    id: "scarlet-witch",
-    name: "Scarlet Witch",
-    role: "DPS",
-    color: "#dc2626",
-    avatar: null,
-  },
-  {
-    id: "winter-soldier",
-    name: "Winter Soldier",
-    role: "DPS",
-    color: "#dc2626",
-    avatar: null,
+    avatar: "/characters/black-panther.png",
   },
   {
     id: "black-widow",
     name: "Black Widow",
-    role: "DPS",
+    role: "Duelist",
     color: "#dc2626",
-    avatar: null,
+    avatar: "/characters/black-widow.png",
+  },
+  {
+    id: "blade",
+    name: "Blade",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/blade.png",
+  },
+  {
+    id: "daredevil",
+    name: "Daredevil",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/daredevil.png",
   },
   {
     id: "hawkeye",
     name: "Hawkeye",
-    role: "DPS",
+    role: "Duelist",
     color: "#dc2626",
-    avatar: null,
+    avatar: "/characters/hawkeye.png",
+  },
+  {
+    id: "hela",
+    name: "Hela",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/hela.png",
+  },
+  {
+    id: "human-torch",
+    name: "Human Torch",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/human-torch.png",
+  },
+  {
+    id: "iron-fist",
+    name: "Iron Fist",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/iron-fist.png",
+  },
+  {
+    id: "ironman",
+    name: "Ironman",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/ironman.png",
+  },
+  {
+    id: "magik",
+    name: "Magik",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/magik.png",
+  },
+  {
+    id: "mister-fantastic",
+    name: "Mister Fantastic",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/mister-fantastic.png",
   },
   {
     id: "moon-knight",
     name: "Moon Knight",
-    role: "DPS",
+    role: "Duelist",
     color: "#dc2626",
-    avatar: null,
+    avatar: "/characters/moon-knight.png",
   },
-  { id: "namor", name: "Namor", role: "DPS", color: "#dc2626", avatar: null },
+  {
+    id: "namor",
+    name: "Namor",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/namor.png",
+  },
+  {
+    id: "phoenix",
+    name: "Phoenix",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/phoenix.png",
+  },
   {
     id: "psylocke",
     name: "Psylocke",
-    role: "DPS",
+    role: "Duelist",
     color: "#dc2626",
-    avatar: null,
+    avatar: "/characters/psylocke.png",
   },
-  { id: "magik", name: "Magik", role: "DPS", color: "#dc2626", avatar: null },
+  {
+    id: "scarlet-witch",
+    name: "Scarlet Witch",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/scarlet-witch.png",
+  },
+  {
+    id: "spiderman",
+    name: "Spiderman",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/spiderman.png",
+  },
+  {
+    id: "squirrel-girl",
+    name: "Squirrel Girl",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/squirrel-girl.png",
+  },
+  {
+    id: "star-lord",
+    name: "Star Lord",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/star-lord.png",
+  },
+  {
+    id: "storm",
+    name: "Storm",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/storm.png",
+  },
+  {
+    id: "the-punisher",
+    name: "The Punisher",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/the-punisher.png",
+  },
+  {
+    id: "winter-soldier",
+    name: "Winter Soldier",
+    role: "Duelist",
+    color: "#dc2626",
+    avatar: "/characters/winter-soldier.png",
+  },
   {
     id: "wolverine",
     name: "Wolverine",
-    role: "DPS",
+    role: "Duelist",
     color: "#dc2626",
-    avatar: null,
+    avatar: "/characters/wolverine.png",
   },
 
-  // Tank Characters
-  { id: "hulk", name: "Hulk", role: "Tank", color: "#2563eb", avatar: null },
+  // Vanguards Characters (alphabetically sorted)
+  {
+    id: "angela",
+    name: "Angela",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/angela.png",
+  },
   {
     id: "captain-america",
     name: "Captain America",
-    role: "Tank",
+    role: "Vanguard",
     color: "#2563eb",
-    avatar: null,
-  },
-  { id: "thor", name: "Thor", role: "Tank", color: "#2563eb", avatar: null },
-  { id: "groot", name: "Groot", role: "Tank", color: "#2563eb", avatar: null },
-  {
-    id: "magneto",
-    name: "Magneto",
-    role: "Tank",
-    color: "#2563eb",
-    avatar: null,
-  },
-  {
-    id: "peni-parker",
-    name: "Peni Parker",
-    role: "Tank",
-    color: "#2563eb",
-    avatar: null,
+    avatar: "/characters/captain-america.png",
   },
   {
     id: "doctor-strange",
     name: "Doctor Strange",
-    role: "Tank",
+    role: "Vanguard",
     color: "#2563eb",
-    avatar: null,
+    avatar: "/characters/doctor-strange.png",
+  },
+  {
+    id: "emma-frost",
+    name: "Emma Frost",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/emma-frost.png",
+  },
+  {
+    id: "groot",
+    name: "Groot",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/groot.png",
+  },
+  {
+    id: "hulk",
+    name: "Hulk",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/hulk.png",
+  },
+  {
+    id: "magneto",
+    name: "Magneto",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/magneto.png",
+  },
+  {
+    id: "peni-parker",
+    name: "Peni Parker",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/peni-parker.png",
+  },
+  {
+    id: "the-thing",
+    name: "The Thing",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/the-thing.png",
+  },
+  {
+    id: "thor",
+    name: "Thor",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/thor.png",
+  },
+  {
+    id: "venom",
+    name: "Venom",
+    role: "Vanguard",
+    color: "#2563eb",
+    avatar: "/characters/venom.png",
   },
 
-  // Support Characters
+  // Strategists Characters (alphabetically sorted)
   {
-    id: "mantis",
-    name: "Mantis",
-    role: "Support",
+    id: "adam-warlock",
+    name: "Adam Warlock",
+    role: "Strategist",
     color: "#16a34a",
-    avatar: null,
+    avatar: "/characters/adam-warlock.png",
+  },
+  {
+    id: "cloak-and-dagger",
+    name: "Cloak & Dagger",
+    role: "Strategist",
+    color: "#16a34a",
+    avatar: "/characters/cloak-and-dagger.png",
+  },
+  {
+    id: "invisible-woman",
+    name: "Invisible Woman",
+    role: "Strategist",
+    color: "#16a34a",
+    avatar: "/characters/invisible-woman.png",
+  },
+  {
+    id: "jeff-the-land-shark",
+    name: "Jeff the Land Shark",
+    role: "Strategist",
+    color: "#16a34a",
+    avatar: "/characters/jeff-the-land-shark.png",
+  },
+  {
+    id: "loki",
+    name: "Loki",
+    role: "Strategist",
+    color: "#16a34a",
+    avatar: "/characters/loki.png",
   },
   {
     id: "luna-snow",
     name: "Luna Snow",
-    role: "Support",
+    role: "Strategist",
     color: "#16a34a",
-    avatar: null,
+    avatar: "/characters/luna-snow.png",
   },
   {
-    id: "adam-warlock",
-    name: "Adam Warlock",
-    role: "Support",
+    id: "mantis",
+    name: "Mantis",
+    role: "Strategist",
     color: "#16a34a",
-    avatar: null,
-  },
-  { id: "loki", name: "Loki", role: "Support", color: "#16a34a", avatar: null },
-  {
-    id: "jeff",
-    name: "Jeff the Land Shark",
-    role: "Support",
-    color: "#16a34a",
-    avatar: null,
+    avatar: "/characters/mantis.png",
   },
   {
     id: "rocket-raccoon",
     name: "Rocket Raccoon",
-    role: "Support",
+    role: "Strategist",
     color: "#16a34a",
-    avatar: null,
+    avatar: "/characters/rocket-raccoon.png",
+  },
+  {
+    id: "ultron",
+    name: "Ultron",
+    role: "Strategist",
+    color: "#16a34a",
+    avatar: "/characters/ultron.png",
   },
 ];
 
@@ -215,7 +382,7 @@ const marvelRivalsCharacters = [
  * Reactive data
  */
 const selectedRole = ref("All");
-const roles = ["All", "DPS", "Tank", "Support"];
+const roles = ["All", "Duelist", "Vanguard", "Strategist"];
 const selectedCharacter = ref(null);
 
 /**
@@ -333,15 +500,15 @@ defineExpose({
     transform: translateY(-1px);
   }
 
-  &--dps {
+  &--duelist {
     border-left: rem(3) solid #dc2626;
   }
 
-  &--tank {
+  &--vanguard {
     border-left: rem(3) solid #2563eb;
   }
 
-  &--support {
+  &--strategist {
     border-left: rem(3) solid #16a34a;
   }
 }

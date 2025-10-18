@@ -544,10 +544,9 @@ const loadMapBackground = async (imageUrl) => {
 /**
  * Public methods (exposed to parent)
  */
-const addCharacter = (characterData, position) => {
+const addCharacter = async (characterData, position) => {
   if (!fabricCanvas.value) return;
 
-  // Create character icon
   const character = new Circle({
     left: position.x,
     top: position.y,
@@ -564,6 +563,47 @@ const addCharacter = (characterData, position) => {
     characterRole: characterData.role,
   });
 
+  let img = null;
+
+  // Create character icon
+  if (characterData.avatar) {
+    img = await FabricImage.fromURL(characterData.avatar, {
+      crossOrigin: "anonymous",
+    });
+    const scaleX = character.width / img.width;
+    const scaleY = character.height / img.height;
+    const scale = Math.min(scaleX, scaleY);
+    img.set({
+      scaleX: scale,
+      scaleY: scale,
+      left: position.x,
+      top: position.y,
+      originX: "center",
+      originY: "center",
+      erasable: false, // Allow eraser to affect character icons
+      // Custom properties
+      characterId: characterData.id,
+      characterName: characterData.name,
+      characterRole: characterData.role,
+    });
+  } else {
+    img = new Circle({
+      left: position.x,
+      top: position.y,
+      radius: 30,
+      fill: characterData.color || "#3b82f6",
+      stroke: "#1e40af",
+      strokeWidth: 3,
+      originX: "center",
+      originY: "center",
+      erasable: false, // Allow eraser to affect character icons
+      // Custom properties
+      characterId: characterData.id,
+      characterName: characterData.name,
+      characterRole: characterData.role,
+    });
+  }
+
   // Add character name text
   const nameText = new FabricText(characterData.name, {
     left: position.x,
@@ -574,13 +614,13 @@ const addCharacter = (characterData, position) => {
     erasable: false, // Allow eraser to affect character names
     originX: "center",
     originY: "center",
-    fill: "#EBEBEB",
+    fill: "#222222", // grey black
     selectable: false,
     evented: false,
   });
 
   // Group character and text
-  const characterGroup = new Group([character, nameText], {
+  const characterGroup = new Group([character, img, nameText], {
     left: position.x,
     top: position.y,
     originX: "center",

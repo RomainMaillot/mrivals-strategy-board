@@ -1,6 +1,6 @@
 <template>
   <div class="map-selector">
-    <h3 class="map-selector__title">Map Selection</h3>
+    <!-- <h3 class="map-selector__title">Map Selection</h3> -->
 
     <div class="map-grid">
       <div
