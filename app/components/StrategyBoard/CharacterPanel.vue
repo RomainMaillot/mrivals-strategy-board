@@ -15,35 +15,74 @@
       </div>
     </div>
 
-    <div class="character-grid">
-      <div
-        v-for="character in filteredCharacters"
-        :key="character.id"
-        class="character-card"
-        :class="`character-card--${character.role.toLowerCase()}`"
-        @click="selectCharacter(character)"
-        @dragstart="onDragStart($event, character)"
-        draggable="true"
-      >
-        <div class="character-avatar">
-          <img
-            v-if="character.avatar"
-            :src="character.avatar"
-            :alt="character.name"
-            class="character-image"
-          />
+    <div class="character-grid character-grid--columns">
+      <div class="character-column">
+        <div class="character-column__list">
           <div
-            v-else
-            class="character-placeholder"
-            :style="{ backgroundColor: character.color }"
+            v-for="character in filteredCharacters"
+            :key="`ally-` + character.id"
+            class="character-card"
+            :class="`character-card--${character.role.toLowerCase()}`"
+            @click="selectCharacter(character)"
+            @dragstart="onDragStart($event, character, 'ally')"
+            draggable="true"
           >
-            {{ character.name.charAt(0) }}
+            <div class="character-avatar">
+              <img
+                v-if="character.avatar"
+                :src="character.avatar"
+                :alt="character.name"
+                class="character-image character-image--ally"
+              />
+              <div
+                v-else
+                class="character-placeholder"
+                :style="{ backgroundColor: character.color }"
+              >
+                {{ character.name.charAt(0) }}
+              </div>
+            </div>
+
+            <!-- <div class="character-info">
+              <h4 class="character-name">{{ character.name }}</h4>
+              <span class="character-role">{{ character.role }}</span>
+            </div> -->
           </div>
         </div>
+      </div>
 
-        <div class="character-info">
-          <h4 class="character-name">{{ character.name }}</h4>
-          <span class="character-role">{{ character.role }}</span>
+      <div class="character-column">
+        <div class="character-column__list">
+          <div
+            v-for="character in filteredCharacters"
+            :key="`enemy-` + character.id"
+            class="character-card"
+            :class="`character-card--${character.role.toLowerCase()}`"
+            @click="selectCharacter(character)"
+            @dragstart="onDragStart($event, character, 'enemy')"
+            draggable="true"
+          >
+            <div class="character-avatar">
+              <img
+                v-if="character.avatar"
+                :src="character.avatar"
+                :alt="character.name"
+                class="character-image character-image--enemy"
+              />
+              <div
+                v-else
+                class="character-placeholder"
+                :style="{ backgroundColor: character.color }"
+              >
+                {{ character.name.charAt(0) }}
+              </div>
+            </div>
+
+            <!-- <div class="character-info">
+              <h4 class="character-name">{{ character.name }}</h4>
+              <span class="character-role">{{ character.role }}</span>
+            </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -409,8 +448,17 @@ const selectCharacter = (character) => {
   emit("character-selected", character);
 };
 
-const onDragStart = (event, character) => {
-  event.dataTransfer.setData("application/json", JSON.stringify(character));
+const onDragStart = (event, character, team) => {
+  /**
+   * Include team metadata in drag payload so the canvas can color strokes
+   */
+  const payload = { ...character, team };
+  try {
+    event.dataTransfer.setData("application/json", JSON.stringify(payload));
+  } catch (e) {
+    // Fallback to text if JSON is blocked by the UA
+    event.dataTransfer.setData("text/plain", JSON.stringify(payload));
+  }
   event.dataTransfer.effectAllowed = "copy";
 };
 
@@ -460,9 +508,13 @@ defineExpose({
   display: flex;
   flex-direction: column;
   gap: rem(8);
-  overflow-y: auto;
+  overflow: hidden;
   flex: 1;
-  padding-right: rem(4);
+
+  &--columns {
+    flex-direction: row;
+    gap: rem(12);
+  }
 
   &::-webkit-scrollbar {
     width: rem(6);
@@ -483,23 +535,53 @@ defineExpose({
   }
 }
 
+.character-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+
+  &__header {
+    font-weight: 700;
+    font-size: rem(14);
+    color: var(--noir, #1f2937);
+    padding: rem(6) rem(8);
+    border: 1px solid var(--gris, #e5e7eb);
+    border-bottom: none;
+    border-radius: rem(8) rem(8) 0 0;
+    background: var(--blanc, #fff);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+    padding-right: rem(4);
+    overflow-y: auto;
+    flex: 1;
+    /* border: 1px solid var(--gris, #e5e7eb); */
+    border-radius: 0 0 rem(8) rem(8);
+    background: var(--blanc, #fff);
+  }
+}
+
 .character-card {
   display: flex;
   align-items: center;
   gap: rem(12);
   padding: rem(10);
-  border: 1px solid var(--gris, #e5e7eb);
-  border-radius: rem(8);
+  /* border: 1px solid var(--gris, #e5e7eb);
+  border-radius: rem(8); */
   cursor: pointer;
   transition: all 0.2s ease;
-  background: var(--blanc, #fff);
+  /* background: var(--blanc, #fff); */
 
   &:hover {
-    border-color: var(--indigo, #3b82f6);
-    background: var(--blanc, #f8fafc);
+    /* border-color: var(--indigo, #3b82f6);
+    background: var(--blanc, #f8fafc); */
     transform: translateY(-1px);
   }
-
+  /* 
   &--duelist {
     border-left: rem(3) solid #dc2626;
   }
@@ -510,12 +592,12 @@ defineExpose({
 
   &--strategist {
     border-left: rem(3) solid #16a34a;
-  }
+  } */
 }
 
 .character-avatar {
-  width: rem(40);
-  height: rem(40);
+  width: 100%;
+  height: auto;
   border-radius: rem(6);
   overflow: hidden;
   flex-shrink: 0;
@@ -525,6 +607,16 @@ defineExpose({
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: 3px solid;
+  border-radius: 50%;
+
+  &--enemy {
+    border-color: #991b1b;
+  }
+
+  &--ally {
+    border-color: #1e40af;
+  }
 }
 
 .character-placeholder {

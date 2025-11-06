@@ -546,14 +546,17 @@ const loadMapBackground = async (imageUrl) => {
  */
 const addCharacter = async (characterData, position) => {
   if (!fabricCanvas.value) return;
+  // Determine stroke color by team (ally: blue, enemy: red)
+  const team = characterData.team === "enemy" ? "enemy" : "ally";
+  const strokeColor = team === "ally" ? "#1e40af" : "#991b1b";
 
   const character = new Circle({
     left: position.x,
     top: position.y,
     radius: 30,
     fill: characterData.color || "#3b82f6",
-    stroke: "#1e40af",
-    strokeWidth: 3,
+    stroke: strokeColor,
+    strokeWidth: 5,
     originX: "center",
     originY: "center",
     erasable: false, // Allow eraser to affect character icons
@@ -561,6 +564,7 @@ const addCharacter = async (characterData, position) => {
     characterId: characterData.id,
     characterName: characterData.name,
     characterRole: characterData.role,
+    characterTeam: team,
   });
 
   let img = null;
@@ -585,6 +589,7 @@ const addCharacter = async (characterData, position) => {
       characterId: characterData.id,
       characterName: characterData.name,
       characterRole: characterData.role,
+      characterTeam: team,
     });
   } else {
     img = new Circle({
@@ -592,7 +597,7 @@ const addCharacter = async (characterData, position) => {
       top: position.y,
       radius: 30,
       fill: characterData.color || "#3b82f6",
-      stroke: "#1e40af",
+      stroke: strokeColor,
       strokeWidth: 3,
       originX: "center",
       originY: "center",
@@ -601,26 +606,27 @@ const addCharacter = async (characterData, position) => {
       characterId: characterData.id,
       characterName: characterData.name,
       characterRole: characterData.role,
+      characterTeam: team,
     });
   }
 
   // Add character name text
-  const nameText = new FabricText(characterData.name, {
-    left: position.x,
-    top: position.y + 40,
-    fontSize: 12,
-    fontFamily: "Arial",
-    textAlign: "center",
-    erasable: false, // Allow eraser to affect character names
-    originX: "center",
-    originY: "center",
-    fill: "#222222", // grey black
-    selectable: false,
-    evented: false,
-  });
+  // const nameText = new FabricText(characterData.name, {
+  //   left: position.x,
+  //   top: position.y + 40,
+  //   fontSize: 12,
+  //   fontFamily: "Arial",
+  //   textAlign: "center",
+  //   erasable: false, // Allow eraser to affect character names
+  //   originX: "center",
+  //   originY: "center",
+  //   fill: "#222222", // grey black
+  //   selectable: false,
+  //   evented: false,
+  // });
 
   // Group character and text
-  const characterGroup = new Group([character, img, nameText], {
+  const characterGroup = new Group([character, img], {
     left: position.x,
     top: position.y,
     originX: "center",
@@ -632,6 +638,7 @@ const addCharacter = async (characterData, position) => {
     characterId: characterData.id,
     characterName: characterData.name,
     characterRole: characterData.role,
+    characterTeam: team,
   });
 
   // Set up controls before adding to canvas
