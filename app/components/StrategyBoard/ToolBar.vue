@@ -75,7 +75,7 @@
 
         <div class="control-group">
           <label class="control-label">Color</label>
-          <input type="color" v-model="brushColor" class="color-input" />
+          <ColorSelector v-model="brushColor" />
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
 
         <div class="control-group">
           <label class="control-label">Color</label>
-          <input type="color" v-model="textColor" class="color-input" />
+          <ColorSelector v-model="textColor" />
         </div>
       </div>
     </div>
@@ -160,6 +160,11 @@
 </template>
 
 <script setup>
+/**
+ * Component imports
+ */
+import ColorSelector from "./ColorSelector.vue";
+
 /**
  * Props
  */
