@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { Canvas, Circle, FabricText, Group, FabricImage } from "fabric";
+import { Canvas, Circle, FabricText, IText, Group, FabricImage } from "fabric";
 
 // Import custom brushes and extensions
 import { createBrush } from "~/utils/brushes";
@@ -54,6 +54,11 @@ const emit = defineEmits([
 const canvasRef = ref(null);
 const fabricCanvas = ref(null);
 const isReady = ref(false);
+const isTextMode = ref(false);
+const textModeOptions = ref({
+  fontSize: 16,
+  fill: "#000000",
+});
 
 /**
  * Initialize Fabric.js canvas
@@ -188,8 +193,36 @@ const setupCanvasEvents = () => {
     removeKeyboardControls();
   });
 
+  // Handle double-click to edit text objects
+  fabricCanvas.value.on("mouse:dblclick", (e) => {
+    if (
+      e.target &&
+      (e.target instanceof IText ||
+        e.target.type === "i-text" ||
+        e.target.type === "textbox")
+    ) {
+      console.log("Double-click to edit text object:", e.target);
+      if (typeof e.target.enterEditing === "function") {
+        e.target.enterEditing();
+        fabricCanvas.value.renderAll();
+      }
+    }
+  });
+
+  // Handle text mode: add text on empty canvas click (use mouse:up to avoid selection conflicts)
+  let textModeMouseDown = false;
+  let textModeMouseDownPosition = null;
+
   // Debug mouse events to check coordinate accuracy for drawing offset issues
   fabricCanvas.value.on("mouse:down", (e) => {
+    // Track mouse down in text mode for simple click detection
+    if (isTextMode.value && !e.target) {
+      textModeMouseDown = true;
+      const pointer = fabricCanvas.value.getPointer(e.e);
+      textModeMouseDownPosition = { x: pointer.x, y: pointer.y };
+    }
+
+    // Debug drawing mode
     if (fabricCanvas.value.isDrawingMode) {
       const pointer = fabricCanvas.value.getPointer(e.e);
       console.log("=== MOUSE DOWN DEBUG ===");
@@ -210,23 +243,11 @@ const setupCanvasEvents = () => {
         fabricCanvas.value.freeDrawingBrush?.constructor?.name
       );
     }
-  });
 
-  // Object scaling and rotation events
-  fabricCanvas.value.on("object:scaling", (e) => {
-    // Maintain aspect ratio for character icons
-    if (e.target && e.target.characterId) {
-      const obj = e.target;
-      const scale = Math.max(obj.scaleX, obj.scaleY);
-      obj.set({ scaleX: scale, scaleY: scale });
-    }
-  });
-
-  // Prevent deselection when clicking on controls
-  fabricCanvas.value.on("mouse:down", (e) => {
+    // Prevent deselection when clicking on controls
     const activeObject = fabricCanvas.value.getActiveObject();
 
-    // If we’re clicking on a control or on the same active object, keep selection
+    // If we're clicking on a control or on the same active object, keep selection
     if (activeObject && (e.target === activeObject || e.target?.__corner)) {
       // stop Fabric from resetting the selection
       e.e.preventDefault?.();
@@ -234,11 +255,37 @@ const setupCanvasEvents = () => {
       return;
     }
 
-    // Otherwise, clear selection only when clicking empty space
-    if (!e.target && !fabricCanvas.value.isDrawingMode) {
+    // Otherwise, clear selection only when clicking empty space (but not in text mode or drawing mode)
+    if (!e.target && !fabricCanvas.value.isDrawingMode && !isTextMode.value) {
       fabricCanvas.value.discardActiveObject();
       fabricCanvas.value.requestRenderAll();
     }
+  });
+
+  fabricCanvas.value.on("mouse:up", (e) => {
+    // Handle text mode: add text on empty canvas click (simple click, not drag)
+    if (
+      isTextMode.value &&
+      textModeMouseDown &&
+      !e.target &&
+      textModeMouseDownPosition
+    ) {
+      const pointer = fabricCanvas.value.getPointer(e.e);
+      // Check if it was a simple click (not a drag) - allow small movement threshold
+      const distance = Math.sqrt(
+        Math.pow(pointer.x - textModeMouseDownPosition.x, 2) +
+          Math.pow(pointer.y - textModeMouseDownPosition.y, 2)
+      );
+      if (distance < 5) {
+        // Simple click, add text at mouse down position for better UX
+        addTextAtPosition(
+          textModeMouseDownPosition.x,
+          textModeMouseDownPosition.y
+        );
+      }
+    }
+    textModeMouseDown = false;
+    textModeMouseDownPosition = null;
   });
 
   // Handle control interaction
@@ -693,6 +740,102 @@ const disableDrawingMode = () => {
   fabricCanvas.value.renderAll();
 };
 
+/**
+ * Enable text mode - clicking on canvas will add text
+ */
+const enableTextMode = (options = {}) => {
+  if (!fabricCanvas.value) return;
+  isTextMode.value = true;
+  textModeOptions.value = {
+    fontSize: options.fontSize || 16,
+    fill: options.fill || "#000000",
+  };
+  // Change cursor to indicate text mode
+  fabricCanvas.value.defaultCursor = "text";
+  fabricCanvas.value.hoverCursor = "text";
+};
+
+/**
+ * Disable text mode
+ */
+const disableTextMode = () => {
+  if (!fabricCanvas.value) return;
+  isTextMode.value = false;
+  // Reset cursor
+  fabricCanvas.value.defaultCursor = "default";
+  fabricCanvas.value.hoverCursor = "move";
+};
+
+/**
+ * Add text at the specified position
+ */
+const addTextAtPosition = (x, y) => {
+  if (!fabricCanvas.value) return;
+
+  // Discard any existing active object to avoid conflicts
+  fabricCanvas.value.discardActiveObject();
+
+  // Create IText object (editable text) - will enter edit mode immediately
+  // IText supports enterEditing() method, unlike standard FabricText
+  const text = new IText("Text", {
+    left: x,
+    top: y,
+    fontSize: textModeOptions.value.fontSize,
+    fill: textModeOptions.value.fill,
+    fontFamily: "Arial",
+    selectable: true,
+    evented: true,
+    originX: "left",
+    originY: "top",
+    editable: true,
+  });
+
+  // Set up controls for the text object
+  setupObjectControls(text);
+
+  // Add to canvas and make it active
+  fabricCanvas.value.add(text);
+  fabricCanvas.value.setActiveObject(text);
+  fabricCanvas.value.renderAll();
+
+  // Use nextTick and setTimeout to ensure the text is fully added and rendered
+  // before entering edit mode - this prevents conflicts with mouse event handling
+  nextTick(() => {
+    setTimeout(() => {
+      if (text && text.canvas && fabricCanvas.value) {
+        // Ensure text is still active
+        const activeObject = fabricCanvas.value.getActiveObject();
+        if (activeObject === text) {
+          try {
+            // Enter editing mode - this will create the textarea for editing
+            text.enterEditing();
+            fabricCanvas.value.renderAll();
+
+            // Try to focus the textarea after a short delay to ensure it's created
+            setTimeout(() => {
+              // Fabric.js creates a hidden textarea for editing
+              // Try different ways to access it depending on Fabric.js version
+              const hiddenTextarea =
+                fabricCanvas.value.hiddenTextarea ||
+                document.querySelector("textarea[data-fabric-textarea]") ||
+                document.querySelector(".canvas-container textarea");
+
+              if (hiddenTextarea) {
+                hiddenTextarea.focus();
+                hiddenTextarea.select();
+              }
+            }, 50);
+          } catch (error) {
+            console.error("Error entering text edit mode:", error);
+          }
+        }
+      }
+    }, 100);
+  });
+
+  emit("canvas-changed");
+};
+
 const clearCanvas = async () => {
   if (!fabricCanvas.value) return;
   fabricCanvas.value.clear();
@@ -806,6 +949,8 @@ defineExpose({
   addCharacter,
   enableDrawingMode,
   disableDrawingMode,
+  enableTextMode,
+  disableTextMode,
   clearCanvas,
   exportCanvas,
   importCanvas,

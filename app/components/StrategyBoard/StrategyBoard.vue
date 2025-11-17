@@ -138,14 +138,24 @@ const onToolChanged = async (toolData) => {
   switch (toolData.tool) {
     case "select":
       canvasRef.value.disableDrawingMode();
+      canvasRef.value.disableTextMode();
       break;
     case "draw":
+      canvasRef.value.disableTextMode();
       await canvasRef.value.enableDrawingMode("pencil", {
         width: toolData.brushSize,
         color: toolData.brushColor,
       });
       break;
+    case "text":
+      canvasRef.value.disableDrawingMode();
+      canvasRef.value.enableTextMode({
+        fontSize: toolData.fontSize || 16,
+        fill: toolData.textColor || "#000000",
+      });
+      break;
     case "erase":
+      canvasRef.value.disableTextMode();
       await canvasRef.value.enableDrawingMode("eraser", {
         width: toolData.brushSize,
       });

@@ -25,6 +25,7 @@ icons.set("sound", resolveComponent("Sound"));
 // Strategy Board icons
 icons.set("cursor", resolveComponent("IconCursor"));
 icons.set("pencil", resolveComponent("IconPencil"));
+icons.set("text", resolveComponent("IconText"));
 icons.set("eraser", resolveComponent("IconEraser"));
 icons.set("trash", resolveComponent("IconTrash"));
 icons.set("save", resolveComponent("IconSave"));

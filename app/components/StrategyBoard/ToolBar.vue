@@ -21,7 +21,7 @@
           :type="currentTool === 'select' ? 'secondary' : 'tertiary'"
           size="small"
           @click="setTool('select')"
-          title="Select Tool"
+          title="Select"
         >
           <Icon name="cursor" size="small" />
         </Button>
@@ -30,23 +30,35 @@
           :type="currentTool === 'draw' ? 'secondary' : 'tertiary'"
           size="small"
           @click="setTool('draw')"
-          title="Drawing Tool"
+          title="Drawing"
         >
           <Icon name="pencil" size="small" />
+        </Button>
+
+        <Button
+          :type="currentTool === 'text' ? 'secondary' : 'tertiary'"
+          size="small"
+          @click="setTool('text')"
+          title="Text"
+        >
+          <Icon name="text" size="small" />
         </Button>
 
         <Button
           :type="currentTool === 'erase' ? 'secondary' : 'tertiary'"
           size="small"
           @click="setTool('erase')"
-          title="Eraser Tool"
+          title="Eraser"
         >
           <Icon name="eraser" size="small" />
         </Button>
       </div>
     </div>
 
-    <div class="toolbar__section">
+    <div
+      class="toolbar__section"
+      v-if="currentTool === 'draw' || currentTool === 'erase'"
+    >
       <h3 class="toolbar__title">Drawing</h3>
       <div class="toolbar__controls">
         <div class="control-group">
@@ -64,6 +76,28 @@
         <div class="control-group">
           <label class="control-label">Color</label>
           <input type="color" v-model="brushColor" class="color-input" />
+        </div>
+      </div>
+    </div>
+
+    <div class="toolbar__section" v-if="currentTool === 'text'">
+      <h3 class="toolbar__title">Text</h3>
+      <div class="toolbar__controls">
+        <div class="control-group">
+          <label class="control-label">Font Size</label>
+          <input
+            type="range"
+            v-model="fontSize"
+            min="8"
+            max="72"
+            class="range-input"
+          />
+          <span class="control-value">{{ fontSize }}px</span>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Color</label>
+          <input type="color" v-model="textColor" class="color-input" />
         </div>
       </div>
     </div>
@@ -152,6 +186,8 @@ const emit = defineEmits([
 const currentTool = ref("select");
 const brushSize = ref(3);
 const brushColor = ref("#ef4444");
+const fontSize = ref(16);
+const textColor = ref("#000000");
 const isOpen = ref(false);
 const toggleHeight = ref(0);
 
@@ -164,6 +200,8 @@ const setTool = (tool) => {
     tool,
     brushSize: brushSize.value,
     brushColor: brushColor.value,
+    fontSize: fontSize.value,
+    textColor: textColor.value,
   });
 };
 
@@ -192,6 +230,23 @@ watch([brushSize, brushColor], () => {
       tool: currentTool.value,
       brushSize: brushSize.value,
       brushColor: brushColor.value,
+      fontSize: fontSize.value,
+      textColor: textColor.value,
+    });
+  }
+});
+
+/**
+ * Watch for text changes
+ */
+watch([fontSize, textColor], () => {
+  if (currentTool.value === "text") {
+    emit("tool-changed", {
+      tool: currentTool.value,
+      brushSize: brushSize.value,
+      brushColor: brushColor.value,
+      fontSize: fontSize.value,
+      textColor: textColor.value,
     });
   }
 });
