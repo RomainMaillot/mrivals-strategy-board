@@ -201,7 +201,6 @@ const setupCanvasEvents = () => {
         e.target.type === "i-text" ||
         e.target.type === "textbox")
     ) {
-      console.log("Double-click to edit text object:", e.target);
       if (typeof e.target.enterEditing === "function") {
         e.target.enterEditing();
         fabricCanvas.value.renderAll();
@@ -322,19 +321,29 @@ const setupObjectControls = (obj) => {
     lockRotation: false,
     lockScalingX: false,
     lockScalingY: false,
-    lockUniScaling: false,
+    // Force uniform scaling for all objects to maintain aspect ratio
+    lockUniScaling: true,
     // Improve control responsiveness
     padding: 10,
     hoverCursor: "move",
     moveCursor: "move",
   });
 
-  // For character groups, maintain aspect ratio
-  if (obj.characterId) {
-    obj.set({
-      lockUniScaling: true, // Force uniform scaling
-    });
-  }
+  // Remove side controls (top, bottom, left, right) - only keep corner controls
+  // This prevents non-uniform scaling and maintains aspect ratio
+  obj.setControlsVisibility({
+    mt: false, // Middle top
+    mb: false, // Middle bottom
+    ml: false, // Middle left
+    mr: false, // Middle right
+    // Keep corner controls visible
+    tl: true, // Top left
+    tr: true, // Top right
+    bl: true, // Bottom left
+    br: true, // Bottom right
+    // Keep rotation control visible
+    mtr: true, // Middle top right (rotation)
+  });
 
   // Ensure the object is properly configured for interaction
   obj.setCoords();
