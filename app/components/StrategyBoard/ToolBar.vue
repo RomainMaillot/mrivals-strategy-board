@@ -189,7 +189,7 @@ const emit = defineEmits([
  * Reactive data
  */
 const currentTool = ref("select");
-const brushSize = ref(3);
+const brushSize = ref(6);
 const brushColor = ref("#ef4444");
 const fontSize = ref(16);
 const textColor = ref("#000000");
