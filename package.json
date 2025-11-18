@@ -1,12 +1,13 @@
 {
   "name": "nuxt-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "private": true,
   "scripts": {
+    "generate:maps": "npx nuxi run scripts/generate-maps",
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "npm run generate:maps && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
