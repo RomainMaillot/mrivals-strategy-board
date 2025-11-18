@@ -4,10 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "generate:maps": "npx nuxi run scripts/generate-maps",
+    "generate:maps": "node scripts/generate-maps.ts",
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "npm run generate:maps && nuxt generate",
+    "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

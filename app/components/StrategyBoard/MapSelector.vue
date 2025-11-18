@@ -138,7 +138,7 @@ const emit = defineEmits(["map-selected"]);
 /**
  * Fetch map structure from backend API.
  */
-const { data, pending } = useFetch("/api/maps");
+const { data, pending } = useFetch("/maps/maps.json");
 
 /**
  * Derived list of modes (fallback to empty array if data is not ready).
