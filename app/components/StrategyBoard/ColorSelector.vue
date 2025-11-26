@@ -43,60 +43,28 @@ const emit = defineEmits(["update:modelValue"]);
  */
 const colorPalette = {
   black: [
-    "#000000", // Pure black
-    "#1a1a1a", // Very dark gray
     "#333333", // Dark gray
-    "#4a4a4a", // Medium dark gray
-    "#666666", // Medium gray
   ],
   white: [
-    "#ffffff", // Pure white
-    "#f5f5f5", // Off white
     "#e8e8e8", // Light gray
-    "#d3d3d3", // Medium light gray
-    "#c0c0c0", // Silver
   ],
   red: [
-    "#dc2626", // Red 600
-    "#ef4444", // Red 500
     "#f87171", // Red 400
-    "#fca5a5", // Red 300
-    "#fecaca", // Red 200
   ],
   green: [
-    "#16a34a", // Green 600
-    "#22c55e", // Green 500
     "#4ade80", // Green 400
-    "#86efac", // Green 300
-    "#bbf7d0", // Green 200
   ],
   blue: [
-    "#2563eb", // Blue 600
-    "#3b82f6", // Blue 500
     "#60a5fa", // Blue 400
-    "#93c5fd", // Blue 300
-    "#dbeafe", // Blue 200
   ],
   cyan: [
-    "#0891b2", // Cyan 600
-    "#06b6d4", // Cyan 500
     "#22d3ee", // Cyan 400
-    "#67e8f9", // Cyan 300
-    "#cffafe", // Cyan 200
   ],
   magenta: [
-    "#c026d3", // Fuchsia 600
-    "#d946ef", // Fuchsia 500
     "#e879f9", // Fuchsia 400
-    "#f0abfc", // Fuchsia 300
-    "#f9a8d4", // Pink 300
   ],
   yellow: [
-    "#ca8a04", // Yellow 600
-    "#eab308", // Yellow 500
     "#facc15", // Yellow 400
-    "#fde047", // Yellow 300
-    "#fef08a", // Yellow 200
   ],
 };
 
@@ -111,7 +79,8 @@ const selectColor = (color) => {
 <style lang="scss" scoped>
 .color-selector {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: rem(12);
 }
 

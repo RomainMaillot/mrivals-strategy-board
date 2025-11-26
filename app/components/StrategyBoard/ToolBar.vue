@@ -203,9 +203,10 @@ const setTool = (tool) => {
   currentTool.value = tool;
   emit("tool-changed", {
     tool,
-    brushSize: brushSize.value,
+    // Convert brushSize to number - range inputs return strings
+    brushSize: Number(brushSize.value),
     brushColor: brushColor.value,
-    fontSize: fontSize.value,
+    fontSize: Number(fontSize.value),
     textColor: textColor.value,
   });
 };
@@ -233,7 +234,8 @@ watch([brushSize, brushColor], () => {
   if (currentTool.value === "draw" || currentTool.value === "erase") {
     emit("tool-changed", {
       tool: currentTool.value,
-      brushSize: brushSize.value,
+      // Convert brushSize to number - range inputs return strings
+      brushSize: Number(brushSize.value),
       brushColor: brushColor.value,
       fontSize: fontSize.value,
       textColor: textColor.value,
@@ -248,9 +250,10 @@ watch([fontSize, textColor], () => {
   if (currentTool.value === "text") {
     emit("tool-changed", {
       tool: currentTool.value,
-      brushSize: brushSize.value,
+      // Convert to numbers - range inputs return strings
+      brushSize: Number(brushSize.value),
       brushColor: brushColor.value,
-      fontSize: fontSize.value,
+      fontSize: Number(fontSize.value),
       textColor: textColor.value,
     });
   }
