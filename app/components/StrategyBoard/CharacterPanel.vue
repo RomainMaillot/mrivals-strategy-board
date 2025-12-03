@@ -29,8 +29,8 @@
           >
             <div class="character-avatar">
               <img
-                v-if="character.avatar"
-                :src="character.avatar"
+                v-if="getAvatarPath(character, 'ally')"
+                :src="getAvatarPath(character, 'ally')"
                 :alt="character.name"
                 class="character-image character-image--ally"
               />
@@ -64,8 +64,8 @@
           >
             <div class="character-avatar">
               <img
-                v-if="character.avatar"
-                :src="character.avatar"
+                v-if="getAvatarPath(character, 'enemy')"
+                :src="getAvatarPath(character, 'enemy')"
                 :alt="character.name"
                 class="character-image character-image--enemy"
               />
@@ -115,161 +115,138 @@ const marvelRivalsCharacters = [
     name: "Black Panther",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/black-panther.png",
   },
   {
     id: "black-widow",
     name: "Black Widow",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/black-widow.png",
   },
   {
     id: "blade",
     name: "Blade",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/blade.png",
   },
   {
     id: "daredevil",
     name: "Daredevil",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/daredevil.png",
   },
   {
     id: "hawkeye",
     name: "Hawkeye",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/hawkeye.png",
   },
   {
     id: "hela",
     name: "Hela",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/hela.png",
   },
   {
     id: "human-torch",
     name: "Human Torch",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/human-torch.png",
   },
   {
     id: "iron-fist",
     name: "Iron Fist",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/iron-fist.png",
   },
   {
     id: "ironman",
     name: "Ironman",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/ironman.png",
   },
   {
     id: "magik",
     name: "Magik",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/magik.png",
   },
   {
     id: "mister-fantastic",
     name: "Mister Fantastic",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/mister-fantastic.png",
   },
   {
     id: "moon-knight",
     name: "Moon Knight",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/moon-knight.png",
   },
   {
     id: "namor",
     name: "Namor",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/namor.png",
   },
   {
     id: "phoenix",
     name: "Phoenix",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/phoenix.png",
   },
   {
     id: "psylocke",
     name: "Psylocke",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/psylocke.png",
   },
   {
     id: "scarlet-witch",
     name: "Scarlet Witch",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/scarlet-witch.png",
   },
   {
     id: "spiderman",
     name: "Spiderman",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/spiderman.png",
   },
   {
     id: "squirrel-girl",
     name: "Squirrel Girl",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/squirrel-girl.png",
   },
   {
     id: "star-lord",
     name: "Star Lord",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/star-lord.png",
   },
   {
     id: "storm",
     name: "Storm",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/storm.png",
   },
   {
     id: "the-punisher",
     name: "The Punisher",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/the-punisher.png",
   },
   {
     id: "winter-soldier",
     name: "Winter Soldier",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/winter-soldier.png",
   },
   {
     id: "wolverine",
     name: "Wolverine",
     role: "Duelist",
     color: "#dc2626",
-    avatar: "/characters/wolverine.png",
   },
 
   // Vanguards Characters (alphabetically sorted)
@@ -278,77 +255,66 @@ const marvelRivalsCharacters = [
     name: "Angela",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/angela.png",
   },
   {
     id: "captain-america",
     name: "Captain America",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/captain-america.png",
   },
   {
     id: "doctor-strange",
     name: "Doctor Strange",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/doctor-strange.png",
   },
   {
     id: "emma-frost",
     name: "Emma Frost",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/emma-frost.png",
   },
   {
     id: "groot",
     name: "Groot",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/groot.png",
   },
   {
     id: "hulk",
     name: "Hulk",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/hulk.png",
   },
   {
     id: "magneto",
     name: "Magneto",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/magneto.png",
   },
   {
     id: "peni-parker",
     name: "Peni Parker",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/peni-parker.png",
   },
   {
     id: "the-thing",
     name: "The Thing",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/the-thing.png",
   },
   {
     id: "thor",
     name: "Thor",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/thor.png",
   },
   {
     id: "venom",
     name: "Venom",
     role: "Vanguard",
     color: "#2563eb",
-    avatar: "/characters/venom.png",
   },
 
   // Strategists Characters (alphabetically sorted)
@@ -357,63 +323,54 @@ const marvelRivalsCharacters = [
     name: "Adam Warlock",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/adam-warlock.png",
   },
   {
     id: "cloak-and-dagger",
     name: "Cloak & Dagger",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/cloak-and-dagger.png",
   },
   {
     id: "invisible-woman",
     name: "Invisible Woman",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/invisible-woman.png",
   },
   {
     id: "jeff-the-land-shark",
     name: "Jeff the Land Shark",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/jeff-the-land-shark.png",
   },
   {
     id: "loki",
     name: "Loki",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/loki.png",
   },
   {
     id: "luna-snow",
     name: "Luna Snow",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/luna-snow.png",
   },
   {
     id: "mantis",
     name: "Mantis",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/mantis.png",
   },
   {
     id: "rocket-raccoon",
     name: "Rocket Raccoon",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/rocket-raccoon.png",
   },
   {
     id: "ultron",
     name: "Ultron",
     role: "Strategist",
     color: "#16a34a",
-    avatar: "/characters/ultron.png",
   },
 ];
 
@@ -439,6 +396,21 @@ const filteredCharacters = computed(() => {
 /**
  * Methods
  */
+/**
+ * Get the avatar path for a character based on team
+ * @param {Object} character - The character object
+ * @param {string} team - The team type ('ally' or 'enemy')
+ * @returns {string|null} The avatar path or null if not available
+ */
+const getAvatarPath = (character, team) => {
+  if (!character || !character.id) {
+    return null;
+  }
+
+  const teamFolder = team === "ally" ? "allies" : "ennemies";
+  return `/characters/${teamFolder}/${character.id}.png`;
+};
+
 const filterByRole = (role) => {
   selectedRole.value = role;
 };
@@ -451,8 +423,14 @@ const selectCharacter = (character) => {
 const onDragStart = (event, character, team) => {
   /**
    * Include team metadata in drag payload so the canvas can color strokes
+   * Also update the avatar path to use the correct team-specific image
    */
-  const payload = { ...character, team };
+  const avatarPath = getAvatarPath(character, team);
+  const payload = {
+    ...character,
+    team,
+    avatar: avatarPath,
+  };
   try {
     event.dataTransfer.setData("application/json", JSON.stringify(payload));
   } catch (e) {
