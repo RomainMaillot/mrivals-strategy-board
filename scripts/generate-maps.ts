@@ -2,7 +2,7 @@ import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { writeFile } from "node:fs/promises";
 
-type MapModeKey = "convoy" | "domination";
+type MapModeKey = "convoy" | "domination" | "convergence";
 
 interface MapImage {
   fileName: string;
@@ -45,7 +45,7 @@ async function generateMaps() {
   const root = process.cwd();
   const mapsRoot = path.join(root, "public", "maps");
 
-  const modeKeys: MapModeKey[] = ["convoy", "domination"];
+  const modeKeys: MapModeKey[] = ["convoy", "domination", "convergence"];
   const modes: MapMode[] = [];
 
   for (const modeKey of modeKeys) {
@@ -81,7 +81,12 @@ async function generateMaps() {
       maps.push({ mapKey: mapDir, points });
     }
 
-    const label = modeKey === "convoy" ? "Convoy" : "Domination";
+    const label =
+      modeKey === "convoy"
+        ? "Convoy"
+        : modeKey === "domination"
+        ? "Domination"
+        : "Convergence";
 
     modes.push({ modeKey, label, maps });
   }

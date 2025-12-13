@@ -615,7 +615,7 @@ const addCharacter = async (characterData, position) => {
     strokeWidth: 5,
     originX: "center",
     originY: "center",
-    erasable: false, // Allow eraser to affect character icons
+    erasable: false,
     // Custom properties
     characterId: characterData.id,
     characterName: characterData.name,
@@ -640,7 +640,7 @@ const addCharacter = async (characterData, position) => {
       top: position.y,
       originX: "center",
       originY: "center",
-      erasable: false, // Allow eraser to affect character icons
+      erasable: false,
       // Custom properties
       characterId: characterData.id,
       characterName: characterData.name,
@@ -657,7 +657,7 @@ const addCharacter = async (characterData, position) => {
       strokeWidth: 3,
       originX: "center",
       originY: "center",
-      erasable: false, // Allow eraser to affect character icons
+      erasable: false,
       // Custom properties
       characterId: characterData.id,
       characterName: characterData.name,

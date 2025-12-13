@@ -75,32 +75,24 @@
               "pointKey": "1st point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 151551.png",
-                  "url": "/maps/convoy/midtown/1st point/Screenshot 2025-10-21 151551.png"
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convoy/midtown/1st point/1st phase.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151611.png",
-                  "url": "/maps/convoy/midtown/1st point/Screenshot 2025-10-21 151611.png"
+                  "fileName": "2nd phase1.png",
+                  "url": "/maps/convoy/midtown/1st point/2nd phase1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151624.png",
-                  "url": "/maps/convoy/midtown/1st point/Screenshot 2025-10-21 151624.png"
+                  "fileName": "2nd phase2.png",
+                  "url": "/maps/convoy/midtown/1st point/2nd phase2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151636.png",
-                  "url": "/maps/convoy/midtown/1st point/Screenshot 2025-10-21 151636.png"
+                  "fileName": "highground.png",
+                  "url": "/maps/convoy/midtown/1st point/highground.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151647.png",
-                  "url": "/maps/convoy/midtown/1st point/Screenshot 2025-10-21 151647.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 151703.png",
-                  "url": "/maps/convoy/midtown/1st point/Screenshot 2025-10-21 151703.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 151711.png",
-                  "url": "/maps/convoy/midtown/1st point/Screenshot 2025-10-21 151711.png"
+                  "fileName": "inside.png",
+                  "url": "/maps/convoy/midtown/1st point/inside.png"
                 }
               ]
             },
@@ -108,20 +100,24 @@
               "pointKey": "2nd point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 151726.png",
-                  "url": "/maps/convoy/midtown/2nd point/Screenshot 2025-10-21 151726.png"
+                  "fileName": "1st phase broken.png",
+                  "url": "/maps/convoy/midtown/2nd point/1st phase broken.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151833.png",
-                  "url": "/maps/convoy/midtown/2nd point/Screenshot 2025-10-21 151833.png"
+                  "fileName": "1st phase def angle.png",
+                  "url": "/maps/convoy/midtown/2nd point/1st phase def angle.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151856.png",
-                  "url": "/maps/convoy/midtown/2nd point/Screenshot 2025-10-21 151856.png"
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convoy/midtown/2nd point/1st phase.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151907.png",
-                  "url": "/maps/convoy/midtown/2nd point/Screenshot 2025-10-21 151907.png"
+                  "fileName": "2nd phase1.png",
+                  "url": "/maps/convoy/midtown/2nd point/2nd phase1.png"
+                },
+                {
+                  "fileName": "2nd phase2.png",
+                  "url": "/maps/convoy/midtown/2nd point/2nd phase2.png"
                 }
               ]
             },
@@ -129,32 +125,24 @@
               "pointKey": "3rd point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 151937.png",
-                  "url": "/maps/convoy/midtown/3rd point/Screenshot 2025-10-21 151937.png"
+                  "fileName": "1st phase broken1.png",
+                  "url": "/maps/convoy/midtown/3rd point/1st phase broken1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151946.png",
-                  "url": "/maps/convoy/midtown/3rd point/Screenshot 2025-10-21 151946.png"
+                  "fileName": "1st phase broken2.png",
+                  "url": "/maps/convoy/midtown/3rd point/1st phase broken2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151959.png",
-                  "url": "/maps/convoy/midtown/3rd point/Screenshot 2025-10-21 151959.png"
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convoy/midtown/3rd point/1st phase.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 152025.png",
-                  "url": "/maps/convoy/midtown/3rd point/Screenshot 2025-10-21 152025.png"
+                  "fileName": "2nd phase broken.png",
+                  "url": "/maps/convoy/midtown/3rd point/2nd phase broken.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 152038.png",
-                  "url": "/maps/convoy/midtown/3rd point/Screenshot 2025-10-21 152038.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 152049.png",
-                  "url": "/maps/convoy/midtown/3rd point/Screenshot 2025-10-21 152049.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 152136.png",
-                  "url": "/maps/convoy/midtown/3rd point/Screenshot 2025-10-21 152136.png"
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convoy/midtown/3rd point/2nd phase.png"
                 }
               ]
             }
@@ -167,24 +155,16 @@
               "pointKey": "1st point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 150104.png",
-                  "url": "/maps/convoy/spider-islands/1st point/Screenshot 2025-10-21 150104.png"
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convoy/spider-islands/1st point/1st phase.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 150928.png",
-                  "url": "/maps/convoy/spider-islands/1st point/Screenshot 2025-10-21 150928.png"
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convoy/spider-islands/1st point/2nd phase.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 151021.png",
-                  "url": "/maps/convoy/spider-islands/1st point/Screenshot 2025-10-21 151021.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 151143.png",
-                  "url": "/maps/convoy/spider-islands/1st point/Screenshot 2025-10-21 151143.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 151201.png",
-                  "url": "/maps/convoy/spider-islands/1st point/Screenshot 2025-10-21 151201.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/convoy/spider-islands/1st point/overview.png"
                 }
               ]
             },
@@ -192,20 +172,12 @@
               "pointKey": "2nd point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 150253.png",
-                  "url": "/maps/convoy/spider-islands/2nd point/Screenshot 2025-10-21 150253.png"
+                  "fileName": "last fight.png",
+                  "url": "/maps/convoy/spider-islands/2nd point/last fight.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 150337.png",
-                  "url": "/maps/convoy/spider-islands/2nd point/Screenshot 2025-10-21 150337.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 151117.png",
-                  "url": "/maps/convoy/spider-islands/2nd point/Screenshot 2025-10-21 151117.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 151235.png",
-                  "url": "/maps/convoy/spider-islands/2nd point/Screenshot 2025-10-21 151235.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/convoy/spider-islands/2nd point/overview.png"
                 }
               ]
             },
@@ -213,20 +185,16 @@
               "pointKey": "3rd point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 150450.png",
-                  "url": "/maps/convoy/spider-islands/3rd point/Screenshot 2025-10-21 150450.png"
+                  "fileName": "1st phase1.png",
+                  "url": "/maps/convoy/spider-islands/3rd point/1st phase1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 150513.png",
-                  "url": "/maps/convoy/spider-islands/3rd point/Screenshot 2025-10-21 150513.png"
+                  "fileName": "1st phase2.png",
+                  "url": "/maps/convoy/spider-islands/3rd point/1st phase2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 150526.png",
-                  "url": "/maps/convoy/spider-islands/3rd point/Screenshot 2025-10-21 150526.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 150602.png",
-                  "url": "/maps/convoy/spider-islands/3rd point/Screenshot 2025-10-21 150602.png"
+                  "fileName": "2nd phase1.png",
+                  "url": "/maps/convoy/spider-islands/3rd point/2nd phase1.png"
                 }
               ]
             }
@@ -239,28 +207,20 @@
               "pointKey": "1st point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 142758.png",
-                  "url": "/maps/convoy/yggdrasill-path/1st point/Screenshot 2025-10-21 142758.png"
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convoy/yggdrasill-path/1st point/1st phase.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 143012.png",
-                  "url": "/maps/convoy/yggdrasill-path/1st point/Screenshot 2025-10-21 143012.png"
+                  "fileName": "2nd phase1.png",
+                  "url": "/maps/convoy/yggdrasill-path/1st point/2nd phase1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 143053.png",
-                  "url": "/maps/convoy/yggdrasill-path/1st point/Screenshot 2025-10-21 143053.png"
+                  "fileName": "2nd phase2.png",
+                  "url": "/maps/convoy/yggdrasill-path/1st point/2nd phase2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 143145.png",
-                  "url": "/maps/convoy/yggdrasill-path/1st point/Screenshot 2025-10-21 143145.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 143336.png",
-                  "url": "/maps/convoy/yggdrasill-path/1st point/Screenshot 2025-10-21 143336.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 145014.png",
-                  "url": "/maps/convoy/yggdrasill-path/1st point/Screenshot 2025-10-21 145014.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/convoy/yggdrasill-path/1st point/overview.png"
                 }
               ]
             },
@@ -268,28 +228,20 @@
               "pointKey": "2nd point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 145140.png",
-                  "url": "/maps/convoy/yggdrasill-path/2nd point/Screenshot 2025-10-21 145140.png"
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convoy/yggdrasill-path/2nd point/1st phase.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 145231.png",
-                  "url": "/maps/convoy/yggdrasill-path/2nd point/Screenshot 2025-10-21 145231.png"
+                  "fileName": "2nd phase1.png",
+                  "url": "/maps/convoy/yggdrasill-path/2nd point/2nd phase1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 145316.png",
-                  "url": "/maps/convoy/yggdrasill-path/2nd point/Screenshot 2025-10-21 145316.png"
+                  "fileName": "2nd phase2.png",
+                  "url": "/maps/convoy/yggdrasill-path/2nd point/2nd phase2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 145342.png",
-                  "url": "/maps/convoy/yggdrasill-path/2nd point/Screenshot 2025-10-21 145342.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 145414.png",
-                  "url": "/maps/convoy/yggdrasill-path/2nd point/Screenshot 2025-10-21 145414.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 145440.png",
-                  "url": "/maps/convoy/yggdrasill-path/2nd point/Screenshot 2025-10-21 145440.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/convoy/yggdrasill-path/2nd point/overview.png"
                 }
               ]
             },
@@ -297,28 +249,24 @@
               "pointKey": "3rd point",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 145529.png",
-                  "url": "/maps/convoy/yggdrasill-path/3rd point/Screenshot 2025-10-21 145529.png"
+                  "fileName": "1st phase1.png",
+                  "url": "/maps/convoy/yggdrasill-path/3rd point/1st phase1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 145544.png",
-                  "url": "/maps/convoy/yggdrasill-path/3rd point/Screenshot 2025-10-21 145544.png"
+                  "fileName": "1st phase2.png",
+                  "url": "/maps/convoy/yggdrasill-path/3rd point/1st phase2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 145700.png",
-                  "url": "/maps/convoy/yggdrasill-path/3rd point/Screenshot 2025-10-21 145700.png"
+                  "fileName": "2nd phase atk.png",
+                  "url": "/maps/convoy/yggdrasill-path/3rd point/2nd phase atk.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 145733.png",
-                  "url": "/maps/convoy/yggdrasill-path/3rd point/Screenshot 2025-10-21 145733.png"
+                  "fileName": "2nd phase def.png",
+                  "url": "/maps/convoy/yggdrasill-path/3rd point/2nd phase def.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 145805.png",
-                  "url": "/maps/convoy/yggdrasill-path/3rd point/Screenshot 2025-10-21 145805.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-10-21 145900.png",
-                  "url": "/maps/convoy/yggdrasill-path/3rd point/Screenshot 2025-10-21 145900.png"
+                  "fileName": "2nd phase1.png",
+                  "url": "/maps/convoy/yggdrasill-path/3rd point/2nd phase1.png"
                 }
               ]
             }
@@ -337,28 +285,28 @@
               "pointKey": "Imperial Institute of Science",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-10-21 142131.png",
-                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/Screenshot 2025-10-21 142131.png"
+                  "fileName": "choke1.png",
+                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/choke1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 142215.png",
-                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/Screenshot 2025-10-21 142215.png"
+                  "fileName": "choke2.png",
+                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/choke2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 142458.png",
-                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/Screenshot 2025-10-21 142458.png"
+                  "fileName": "overview1 broken.png",
+                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/overview1 broken.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 142544.png",
-                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/Screenshot 2025-10-21 142544.png"
+                  "fileName": "overview1.png",
+                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/overview1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 142611.png",
-                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/Screenshot 2025-10-21 142611.png"
+                  "fileName": "overview2 broken.png",
+                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/overview2 broken.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-10-21 142637.png",
-                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/Screenshot 2025-10-21 142637.png"
+                  "fileName": "overview2.png",
+                  "url": "/maps/domination/birnin-t_challa/Imperial Institute of Science/overview2.png"
                 }
               ]
             },
@@ -366,16 +314,16 @@
               "pointKey": "Stellar Spaceport",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 222139.png",
-                  "url": "/maps/domination/birnin-t_challa/Stellar Spaceport/Screenshot 2025-09-17 222139.png"
+                  "fileName": "choke.png",
+                  "url": "/maps/domination/birnin-t_challa/Stellar Spaceport/choke.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 222202.png",
-                  "url": "/maps/domination/birnin-t_challa/Stellar Spaceport/Screenshot 2025-09-17 222202.png"
+                  "fileName": "overview1.png",
+                  "url": "/maps/domination/birnin-t_challa/Stellar Spaceport/overview1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 222351.png",
-                  "url": "/maps/domination/birnin-t_challa/Stellar Spaceport/Screenshot 2025-09-17 222351.png"
+                  "fileName": "overview2.png",
+                  "url": "/maps/domination/birnin-t_challa/Stellar Spaceport/overview2.png"
                 }
               ]
             },
@@ -383,16 +331,16 @@
               "pointKey": "Warrior Falls",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 223309.png",
-                  "url": "/maps/domination/birnin-t_challa/Warrior Falls/Screenshot 2025-09-17 223309.png"
+                  "fileName": "choke.png",
+                  "url": "/maps/domination/birnin-t_challa/Warrior Falls/choke.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 223328.png",
-                  "url": "/maps/domination/birnin-t_challa/Warrior Falls/Screenshot 2025-09-17 223328.png"
+                  "fileName": "overview broken.png",
+                  "url": "/maps/domination/birnin-t_challa/Warrior Falls/overview broken.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 223627.png",
-                  "url": "/maps/domination/birnin-t_challa/Warrior Falls/Screenshot 2025-09-17 223627.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/birnin-t_challa/Warrior Falls/overview.png"
                 }
               ]
             }
@@ -402,45 +350,41 @@
           "mapKey": "celestial-husk",
           "points": [
             {
-              "pointKey": "celestial-codex",
+              "pointKey": "Celestial Codex",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 231107.png",
-                  "url": "/maps/domination/celestial-husk/celestial-codex/Screenshot 2025-09-17 231107.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/celestial-husk/Celestial Codex/overview.png"
                 }
               ]
             },
             {
-              "pointKey": "celestial-hand",
+              "pointKey": "Celestial Hand",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 225844.png",
-                  "url": "/maps/domination/celestial-husk/celestial-hand/Screenshot 2025-09-17 225844.png"
+                  "fileName": "choke1.png",
+                  "url": "/maps/domination/celestial-husk/Celestial Hand/choke1.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 225903.png",
-                  "url": "/maps/domination/celestial-husk/celestial-hand/Screenshot 2025-09-17 225903.png"
+                  "fileName": "choke2.png",
+                  "url": "/maps/domination/celestial-husk/Celestial Hand/choke2.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 230208.png",
-                  "url": "/maps/domination/celestial-husk/celestial-hand/Screenshot 2025-09-17 230208.png"
-                },
-                {
-                  "fileName": "Screenshot 2025-09-17 230718.png",
-                  "url": "/maps/domination/celestial-husk/celestial-hand/Screenshot 2025-09-17 230718.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/celestial-husk/Celestial Hand/overview.png"
                 }
               ]
             },
             {
-              "pointKey": "celestial-vault",
+              "pointKey": "Celestial Vault",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 225506.png",
-                  "url": "/maps/domination/celestial-husk/celestial-vault/Screenshot 2025-09-17 225506.png"
+                  "fileName": "choke.png",
+                  "url": "/maps/domination/celestial-husk/Celestial Vault/choke.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 225617.png",
-                  "url": "/maps/domination/celestial-husk/celestial-vault/Screenshot 2025-09-17 225617.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/celestial-husk/Celestial Vault/overview.png"
                 }
               ]
             }
@@ -450,41 +394,315 @@
           "mapKey": "hell_s-heaven",
           "points": [
             {
-              "pointKey": "eldritch-monument",
+              "pointKey": "Eldritch Monument",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 225116.png",
-                  "url": "/maps/domination/hell_s-heaven/eldritch-monument/Screenshot 2025-09-17 225116.png"
+                  "fileName": "choke.png",
+                  "url": "/maps/domination/hell_s-heaven/Eldritch Monument/choke.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 225258.png",
-                  "url": "/maps/domination/hell_s-heaven/eldritch-monument/Screenshot 2025-09-17 225258.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/hell_s-heaven/Eldritch Monument/overview.png"
                 }
               ]
             },
             {
-              "pointKey": "frozen-airfield",
+              "pointKey": "Frozen Airfield",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 223932.png",
-                  "url": "/maps/domination/hell_s-heaven/frozen-airfield/Screenshot 2025-09-17 223932.png"
+                  "fileName": "choke.png",
+                  "url": "/maps/domination/hell_s-heaven/Frozen Airfield/choke.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 223950.png",
-                  "url": "/maps/domination/hell_s-heaven/frozen-airfield/Screenshot 2025-09-17 223950.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/hell_s-heaven/Frozen Airfield/overview.png"
                 }
               ]
             },
             {
-              "pointKey": "super-soldier-factory",
+              "pointKey": "Super-Soldier Factory",
               "images": [
                 {
-                  "fileName": "Screenshot 2025-09-17 224314.png",
-                  "url": "/maps/domination/hell_s-heaven/super-soldier-factory/Screenshot 2025-09-17 224314.png"
+                  "fileName": "choke.png",
+                  "url": "/maps/domination/hell_s-heaven/Super-Soldier Factory/choke.png"
                 },
                 {
-                  "fileName": "Screenshot 2025-09-17 224337.png",
-                  "url": "/maps/domination/hell_s-heaven/super-soldier-factory/Screenshot 2025-09-17 224337.png"
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/hell_s-heaven/Super-Soldier Factory/overview.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mapKey": "krakoa",
+          "points": [
+            {
+              "pointKey": "Carousel",
+              "images": [
+                {
+                  "fileName": "choke1.png",
+                  "url": "/maps/domination/krakoa/Carousel/choke1.png"
+                },
+                {
+                  "fileName": "choke2.png",
+                  "url": "/maps/domination/krakoa/Carousel/choke2.png"
+                },
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/krakoa/Carousel/overview.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "Cradle",
+              "images": [
+                {
+                  "fileName": "choke1.png",
+                  "url": "/maps/domination/krakoa/Cradle/choke1.png"
+                },
+                {
+                  "fileName": "choke2.png",
+                  "url": "/maps/domination/krakoa/Cradle/choke2.png"
+                },
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/domination/krakoa/Cradle/overview.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "Grove",
+              "images": [
+                {
+                  "fileName": "choke.png",
+                  "url": "/maps/domination/krakoa/Grove/choke.png"
+                },
+                {
+                  "fileName": "overview1.png",
+                  "url": "/maps/domination/krakoa/Grove/overview1.png"
+                },
+                {
+                  "fileName": "overview2.png",
+                  "url": "/maps/domination/krakoa/Grove/overview2.png"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modeKey": "convergence",
+      "label": "Convergence",
+      "maps": [
+        {
+          "mapKey": "central-park",
+          "points": [
+            {
+              "pointKey": "1st point",
+              "images": [
+                {
+                  "fileName": "overview broken.png",
+                  "url": "/maps/convergence/central-park/1st point/overview broken.png"
+                },
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/convergence/central-park/1st point/overview.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "2nd point",
+              "images": [
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/central-park/2nd point/1st phase.png"
+                },
+                {
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convergence/central-park/2nd point/2nd phase.png"
+                },
+                {
+                  "fileName": "overview broken.png",
+                  "url": "/maps/convergence/central-park/2nd point/overview broken.png"
+                },
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/convergence/central-park/2nd point/overview.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "3rd point",
+              "images": [
+                {
+                  "fileName": "1st phase broken.png",
+                  "url": "/maps/convergence/central-park/3rd point/1st phase broken.png"
+                },
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/central-park/3rd point/1st phase.png"
+                },
+                {
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convergence/central-park/3rd point/2nd phase.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mapKey": "hall-of-djalia",
+          "points": [
+            {
+              "pointKey": "1st point",
+              "images": [
+                {
+                  "fileName": "coast angle.png",
+                  "url": "/maps/convergence/hall-of-djalia/1st point/coast angle.png"
+                },
+                {
+                  "fileName": "def angle.png",
+                  "url": "/maps/convergence/hall-of-djalia/1st point/def angle.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "2nd point",
+              "images": [
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/hall-of-djalia/2nd point/1st phase.png"
+                },
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/convergence/hall-of-djalia/2nd point/overview.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "3rd point",
+              "images": [
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/hall-of-djalia/3rd point/1st phase.png"
+                },
+                {
+                  "fileName": "2nd phase atk.png",
+                  "url": "/maps/convergence/hall-of-djalia/3rd point/2nd phase atk.png"
+                },
+                {
+                  "fileName": "2nd phase def.png",
+                  "url": "/maps/convergence/hall-of-djalia/3rd point/2nd phase def.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mapKey": "heart-of-heaven",
+          "points": [
+            {
+              "pointKey": "1st point",
+              "images": [
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/convergence/heart-of-heaven/1st point/overview.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "2nd point",
+              "images": [
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/heart-of-heaven/2nd point/1st phase.png"
+                },
+                {
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convergence/heart-of-heaven/2nd point/2nd phase.png"
+                },
+                {
+                  "fileName": "coast angle.png",
+                  "url": "/maps/convergence/heart-of-heaven/2nd point/coast angle.png"
+                },
+                {
+                  "fileName": "def spawn angle.png",
+                  "url": "/maps/convergence/heart-of-heaven/2nd point/def spawn angle.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "3rd point",
+              "images": [
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/heart-of-heaven/3rd point/1st phase.png"
+                },
+                {
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convergence/heart-of-heaven/3rd point/2nd phase.png"
+                },
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/convergence/heart-of-heaven/3rd point/overview.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mapKey": "symbiotic-surface",
+          "points": [
+            {
+              "pointKey": "1st point",
+              "images": [
+                {
+                  "fileName": "early fight.png",
+                  "url": "/maps/convergence/symbiotic-surface/1st point/early fight.png"
+                },
+                {
+                  "fileName": "highground.png",
+                  "url": "/maps/convergence/symbiotic-surface/1st point/highground.png"
+                },
+                {
+                  "fileName": "overview.png",
+                  "url": "/maps/convergence/symbiotic-surface/1st point/overview.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "2nd point",
+              "images": [
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/symbiotic-surface/2nd point/1st phase.png"
+                },
+                {
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convergence/symbiotic-surface/2nd point/2nd phase.png"
+                },
+                {
+                  "fileName": "3rd phase1.png",
+                  "url": "/maps/convergence/symbiotic-surface/2nd point/3rd phase1.png"
+                },
+                {
+                  "fileName": "3rd phase2.png",
+                  "url": "/maps/convergence/symbiotic-surface/2nd point/3rd phase2.png"
+                }
+              ]
+            },
+            {
+              "pointKey": "3rd point",
+              "images": [
+                {
+                  "fileName": "1st phase.png",
+                  "url": "/maps/convergence/symbiotic-surface/3rd point/1st phase.png"
+                },
+                {
+                  "fileName": "2nd phase.png",
+                  "url": "/maps/convergence/symbiotic-surface/3rd point/2nd phase.png"
                 }
               ]
             }

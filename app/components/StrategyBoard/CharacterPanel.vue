@@ -316,6 +316,12 @@ const marvelRivalsCharacters = [
     role: "Vanguard",
     color: "#2563eb",
   },
+  {
+    id: "rogue",
+    name: "Rogue",
+    role: "Vanguard",
+    color: "#2563eb",
+  },
 
   // Strategists Characters (alphabetically sorted)
   {
@@ -369,6 +375,12 @@ const marvelRivalsCharacters = [
   {
     id: "ultron",
     name: "Ultron",
+    role: "Strategist",
+    color: "#16a34a",
+  },
+  {
+    id: "gambit",
+    name: "Gambit",
     role: "Strategist",
     color: "#16a34a",
   },
